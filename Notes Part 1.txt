@@ -1,0 +1,6 @@
+Virtual Machine
+	Adrew Tenenbaum's definition. 
+    Not today's definition of virtual machine.
+    What is the machine they are interacting with when they use a computer, the machine in their mind that they are working with is defined by the GUI of what they are using. 
+    	GUI is part of some user application. 
+        	That user interface is written in a programming language such as Java. 
