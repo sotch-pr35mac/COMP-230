@@ -1,3 +1,5 @@
+First Things First: www.cs.kzoo.edu/cs230
+
 Virtual Machine
 	Andrew Tenenbaum's definition. 
     Not today's definition of virtual machine.
