@@ -1,6 +1,25 @@
 Virtual Machine
-	Adrew Tenenbaum's definition. 
+	Andrew Tenenbaum's definition. 
     Not today's definition of virtual machine.
     What is the machine they are interacting with when they use a computer, the machine in their mind that they are working with is defined by the GUI of what they are using. 
     	GUI is part of some user application. 
-        	That user interface is written in a programming language such as Java. 
+        	That user interface is written in a programming language such as Java. Chances are that large chunks of the operating system is written in C.
+            When a Java program gets compiled it gets complied into an equivalent version of itself in Java Byte Code. 
+            	The Java Byte Code cannot be run by the machine itself, it has to be run by some Java Virtual Machine (today's definition of that word) (JVM). 
+			The Java Virtual Machine is built on some language that can be run in Machine Language.
+            When a C program gets compiled it get compiled down into an equivalent version in Machine Language.
+	    At the bottom of all of this is all of the actual wires, switches and current. 
+		So what does all of this do? 
+			1. It stores data: integers, floating point, machine language instructions
+				Chances are most encoding (of really any data type) is integers. sometimes its floating point, but mostly its just always integers
+				For the purposes of this class: it is smart to consider machine language instructions as a separate data type, even though it is encoded as integers or floating point
+				What makes a computer a computer is that it can store machine language instruction, and that you can change what it does, thats how it separates a computer from any other electronic device. 
+				The only thing a computer knows what to do, it runs Machine Language Programs. Thats it. If you want to write a program in a higher level language, you will have to compile it down to Machine language.
+					The way the the machine language works, is that it needs to fetch the next instruction, evaluate it, figure out what kind of instruction it is (like what does it want us to do), and then execute it. 
+
+A big part of this course we are going to concentrate a lot of our time on the hardware (a simplified version of the hardware), and the simple building blocks that modern engineers 
+	Modern design gives us VLSI, (Very Large Scale Integrated Circuits)
+	What we are going to look at is VSSI (Very Small Scale Integrated Circuits) - the building blocks of the machines and computers
+	We are going to have to understand Machine Language as well if we really want to understand whats going on.
+		This means that we could write programs in Assembly Languages (which is a very low-level language), and how it is different from Machine Language
+Assembly is a 1:1 correspondance between machine language's 0's and 1's that have a command and a phuenomic command for the same action
