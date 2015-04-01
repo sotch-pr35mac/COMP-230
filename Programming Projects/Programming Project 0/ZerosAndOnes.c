@@ -12,10 +12,9 @@ main() {
   int i = 0;
   char currentChar;
 
+  printf("Please enter 32 0/1 digits: ");
   while(i < 32) {
-    printf("Please enter a number: ");
     scanf("%c", &currentChar);
-    printf("Thank you, you entered: %c\n", currentChar);
 
     if(currentChar == '0') {
       zeroCounter++;
