@@ -58,3 +58,34 @@ C: Simple Differences and Implications
 			==> functions are global
 			==> struct, typedef
 			==> No String class
+
+Here is some interesting shit about the implications of no classes:
+	struct:
+		struct {
+			char *label;
+			int address;
+		}
+		struct {
+			int x;
+			int y;
+		}
+
+	Less Prefered Method for doing structs in C:
+		struct Point_tag {
+			int x;
+			int y;
+		}
+		struct Point_tag p1;
+		struct Point_tag p2;
+
+	More prefered way of doing all of this:
+		typedef struct {
+			char *label;
+			int address;
+		} LabelEntry;
+
+		LabelEntry entry1;
+
+		typedef int boolean;
+
+	So structs give us a little more or less of what is in java with classes.
