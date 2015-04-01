@@ -15,7 +15,7 @@ main() {
   while(i < 32) {
     printf("Please enter a number: ");
     scanf("%c", &currentChar);
-    printf(" \n");
+    printf("Thank you, you entered: %c\n", currentChar);
 
     if(currentChar == '0') {
       zeroCounter++;
