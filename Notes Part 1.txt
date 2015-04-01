@@ -25,3 +25,36 @@ A big part of this course we are going to concentrate a lot of our time on the h
 	We are going to have to understand Machine Language as well if we really want to understand whats going on.
 		This means that we could write programs in Assembly Languages (which is a very low-level language), and how it is different from Machine Language
 Assembly is a 1:1 correspondance between machine language's 0's and 1's that have a command and a phuenomic command for the same action
+
+Complilation Process for C
+	Preprocessor --> Compiler --> Assembler; Loader
+	include.h can link to different function declarations, such as file.c, file2.c, and file3.c
+	What is the difference #include <stdio.h> and #include "myHeader.h"
+		<> is used for system libraries, "" is for things we've declaired in the current directory
+	Everything with a # sign willl be handled by the preprocessor, and not even be seen by the compiler, the preprocessor puts everything in the include into the actual file itself for the compiler to handle easier
+	You can actually include a lot of things
+		#ifndef MYHEADER
+		#define MYHEADER
+		#include MYHEADER
+	The Loader does 2 thing, it loads them together, and resolves unresolved global references
+
+C: Simple Differences and Implications
+	All declarations @ the top of blocks
+	Use the standard C, because if you don't and even though your compiler allows it, it might have some troubles with cross-compatability
+	Types that C does not have:
+		-It does not have a boolean type (you can just go ahead and use an integer 0 and 1 for false and true respectively)
+		-No Classes (not a bad thing...)
+		-Underscores are allowed, dashes or not, cannot use a digit as the first character in a variable name.
+		-Anything other than 0 will be evaluated as true
+		-C can have expressions that are statements
+			-Expressions evaluate to something, and statements that change the state of something or change something in memory.
+			-<code>y=3</code> will evaluate to true, always
+			-<code>y=0</code> wille valuate to false.
+	No classes
+		Classes: Encapsulation
+			 Abstraction
+			 1st First Order
+		Here are some of the implications of this:
+			==> functions are global
+			==> struct, typedef
+			==> No String class
