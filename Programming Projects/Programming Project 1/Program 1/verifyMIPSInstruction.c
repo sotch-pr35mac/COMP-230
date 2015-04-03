@@ -19,18 +19,16 @@
  *		            contains invalid characters
  *	    Output: Prints an error message to stderr if necessary
  *
- * Implementation:
+ * TODO: Implementation:
  *	Describe interesting implementation details here, if any.
  *      (HOW does this function work?  What non-trivial data structures
  *	or algorithms does it use?  Does it have performance
  *	characteristics that the user should be aware of?)
  *
- * Author: 
- *	with assistance from:
+ * Author: Preston Stosur-Bassett
+ *	with assistance from: Alyce Brady
  *
- * Creation Date:  Creation_Date
- *	modified: Modification_Date	reason
- *	modified: Modification_Date	reason
+ * Creation Date:  3.4.15
  *
  */
 
@@ -51,6 +49,6 @@ int verifyMIPSInstruction (int lineNum, char * instr)
         return 0;
     }
 
-    /* CODE MISSING !!! */
+    /* TODO: CODE MISSING !!! */
 
 }

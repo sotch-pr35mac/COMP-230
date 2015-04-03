@@ -23,7 +23,7 @@
  * string being converted is long enough (end - begin + 1 == 32)
  * and if the first character is '1'.
  *
- * Implementation:
+ * TODO: Implementation:
  *	Describe interesting implementation details here, if any.
  *      (HOW does this function work?  What non-trivial data structures
  *	or algorithms does it use?  Does it have performance
