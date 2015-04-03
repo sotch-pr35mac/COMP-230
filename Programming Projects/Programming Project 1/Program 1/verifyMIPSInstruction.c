@@ -42,6 +42,7 @@ int verifyMIPSInstruction (int lineNum, char * instr)
 {
     int   length;
     int characterIterator;
+    int returnValue = 0;
 
     length = strlen(instr);
     if (length != 32)
@@ -50,7 +51,23 @@ int verifyMIPSInstruction (int lineNum, char * instr)
         return 0;
     }
 
+    characterIterator = 0;
+    while(characterIterator < 32) {
+      if(characterIterator != 31) {
+        if(instr[characterIterator] != '0' || instr[characterIterator] != '1') {
+          printf("Error! (line %d) contains non-binary values.\n", lineNum);
+          return 0;
+        }
+      }
+      else {
+        if(instrc[characterIterator] != '\0') {
+          printf("Error! (line %d) does not contain a terminating null-byte.\n", lineNum);
+        }
+      }
 
-    /* TODO: CODE MISSING !!! */
+      characterIterator++;
+    }
+
+    return 1;
 
 }

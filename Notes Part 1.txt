@@ -141,3 +141,25 @@ C (Strings and Pointers)
 				preston[5] = 'o';
 				preston[6] = 'n';
 				preston[7] = '\0'; ==> null byte
+		When we pass a string in C using something like strlen to get the length of a string what it does is it gives the location of the first value in the string that is followed by the other values in that string
+
+	So fun fact: Java's .compareTo() method evolved from C's strcmp()
+
+	Don't forget to include #include<string.h>
+
+	Let's take a look at a bit of code right here:
+		if(strcmp(string1, string2) == 0) {
+			...
+		} ==> This will actually not work, this inside of the if will run only when the two strings aren't the same, so the way you get this to work is like this:
+		if(!strcmp(string1, string2)) {
+			...
+		} ==> This will work, however it looks super confusing and it just bad practice, so lets do a little work around to make it better;
+		int SAME = 0;
+		if(strcmp(string1, string2) == SAME) {
+			...
+		} ==> See, thats a little better than before, still not great, but its the best we've got
+
+	
+	char * studentp; ==> when you use the `char *` it uses a pointer to memeory
+	studentp = student;
+	char student[20] = "William" <===> char alyce[6]; 
