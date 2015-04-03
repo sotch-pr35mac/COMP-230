@@ -163,3 +163,16 @@ C (Strings and Pointers)
 	char * studentp; ==> when you use the `char *` it uses a pointer to memeory
 	studentp = student;
 	char student[20] = "William" <===> char alyce[6]; 
+
+Pointers
+
+	*Note: The address of i is 1000
+
+	int i = 5;
+	int *ip;
+	ip = &i;
+	
+	i ==> 5
+	ip ==> 1000
+	&i ==> 1000
+	*ip ==> 5
