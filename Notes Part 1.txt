@@ -89,3 +89,55 @@ Here is some interesting shit about the implications of no classes:
 		typedef int boolean;
 
 	So structs give us a little more or less of what is in java with classes.
+
+C Design
+	Object Oriented Design are closes related, so like you can have an object oriented design but implement it with a non object oriented lanuage
+	So in C we have what is called Structured Design, (with structs, not with objects) (a procedural paradigm)
+
+	distinction between declarations and definitions.
+		Variable (associations):
+			-Name
+			-Type
+			-Size / Layout
+			-Address (temp or final)
+		Declaration:
+			-Name
+			-Type
+			-Size / Layout
+		Definition:
+			-Declaration
+			-Memory Allocation and knowing where it is going to be
+
+		Declaration is also called a Prototype (sound like anything familiar ;-)
+		So a declaration is like C's and JavaScript's Prototype, and is like Java's Interface, it only have declarations, so it only has a type and name and layout
+		Declarations are found in C's header files, and you wouldn't want a definition there, and you want it outside the outside the function definitions.
+
+		So when we are talking about declarations, lets look at two examples here:
+			Java
+				int i; ==> creates a type, name, and size.
+				Fish f = new Fish(); ==> creates a reference to the address to memory of where the information is stored. (we have this idea in C also we call it pointer, however, we don't have a "new" pointer in C so we have to figure out a way to dynamically allocate memory like this)
+			Moral of the story here is that the whole mind set is different when in Java and in C and just shit in general is a lot different
+
+	In C there are no class variables (in Java its called a static variable) and there are no instance variables, but there is such a thing as a global variable (which there really isn't in Java)
+	When you want to share a variable accross several functions, then you make it a global variable
+
+	More on Sturctured Design
+		We take a look at the verbs and action words in the verbal description, instead of how we take a look at all the nouns and objects when we are doing object oriented programming
+		We can take a look at a strucutre chart here: http://www.cs.kzoo.edu/cs230/lectures/StructuredDesign/ExampleStructChart.pdf
+
+C (Strings and Pointers)
+	So, C has no `string` type. There is one tiny way that that is a lie. 
+		There is, however, a string constant, which may be confusing at first but hold in there.
+	When trying to figure out how to use strings in C, we have to think about what a string is really.
+		A `string` is more or less of `chars`
+		It is assumed that a `string` that is an `array` of `chars` has one null byte at the end of it.
+			For example of this: `
+				char preston[8];
+				preston[0] = 'p';
+				preston[1] = 'r';
+				preston[2] = 'e';
+				preston[3] = 's';
+				preston[4] = 't';
+				preston[5] = 'o';
+				preston[6] = 'n';
+				preston[7] = '\0'; ==> null byte

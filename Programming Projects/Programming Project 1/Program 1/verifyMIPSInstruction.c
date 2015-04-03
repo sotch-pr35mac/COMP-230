@@ -41,6 +41,7 @@ int verifyMIPSInstruction (int lineNum, char * instr)
    */
 {
     int   length;
+    int characterIterator;
 
     length = strlen(instr);
     if (length != 32)
@@ -48,6 +49,7 @@ int verifyMIPSInstruction (int lineNum, char * instr)
         fprintf (stderr, "Error: line %d does not have 32 chars.\n", lineNum);
         return 0;
     }
+
 
     /* TODO: CODE MISSING !!! */
 
