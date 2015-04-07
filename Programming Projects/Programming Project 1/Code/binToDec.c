@@ -36,6 +36,8 @@
  *
  */
 
+#include "verifiers.h"
+
 int binToDec(char string[], int begin, int end)
 {
 	int i = 0;

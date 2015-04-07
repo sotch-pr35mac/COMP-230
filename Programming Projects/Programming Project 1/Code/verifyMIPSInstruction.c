@@ -34,6 +34,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include "verifiers.h"
 
 int verifyMIPSInstruction (int lineNum, char * instr)
   /*  returns 1 if instr contains 32 characters representing binary
