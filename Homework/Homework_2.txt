@@ -1,5 +1,12 @@
 1.
 	R-Type (Register)
 		Format: opcode: 31-26 bits, register $zero: 25-21 bits, register $s0: 20-16 bits, register $t0: 15-11 bits, shift amount: 10-6bits, function: 5-0 bits
-		Binary: 00000000000100000100000000100000
-		Decimal: 1064992
+		Binary: 000000 00000 10000 01000 00000 100000
+		Decimal: 0 0 16 8 0 32
+* 	I-Type (Immediate)
+		Format; opcode: 31-26 bits, register $s0: 25-21 bits, register $s1: 20-16 bits, immediate: 15-0 bits
+		Binary: 000100 10000 10111 ENDIF
+		Decimal: 4 16 23 ENDIF
+	R-Type (Register)
+		
+	
