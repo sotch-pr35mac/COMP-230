@@ -6,14 +6,14 @@
  *      MIPS instruction, the program calls binToDec for various
  *      segments of the instruction to test the binToDec function.
  *
- * Input:
+ * TODO: Input:
  *      The program reads its input from a file passed in as a parameter
  *      on the command line, or reads from the standard input.
  *      To test verifyMIPSInstruction, the file should contain ...
  *
  *              DESCRIBE NECESSARY TEST CASES HERE
  *
- * Output:
+ * TODO: Output:
  *      For each valid line, the program prints a series of decimal
  *      numbers to test binToDec, representing
  *
@@ -23,16 +23,13 @@
  *      stderr saying so.  (The program also prints an error message if
  *      it cannot open the file.)
  *
- * Author:  Your_Name(s)
- *        with assistance from:
+ * Author:  Preston Stosur-Bassett
+ *        with assistance from: Alyce Brady
  *
- * Creation Date:  Creation_Date
- *        modified: Modification_Date        reason
- *        modified: Modification_Date        reason
+ * Creation Date:  3.4.15
  *
  */
 
-/* include files go here */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -74,6 +71,7 @@ int main(int argc, char *argv[])
         if (buffer[length - 1] == '\n')
             buffer[length - 1] = '\0';      /* convert newline to null byte */
 
+        
         /* Verify that the string is 32 0's and 1's.  If it is, do
          * various tests to ensure that binToDec works correctly.
          * If the string is invalid, verifyMIPSinstruction should print
