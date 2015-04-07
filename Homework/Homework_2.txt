@@ -1,0 +1,5 @@
+1.
+	R-Type (Register)
+		Format: opcode: 31-26 bits, register $zero: 25-21 bits, register $s0: 20-16 bits, register $t0: 15-11 bits, shift amount: 10-6bits, function: 5-0 bits
+		Binary: 00000000000100000100000000100000
+		Decimal: 1064992
