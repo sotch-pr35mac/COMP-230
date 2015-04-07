@@ -35,8 +35,8 @@
 #include <string.h>
 #include "verifiers.h"
 
-int binToDec(char string[], int begin, int end);
-int verifyMIPSInstruction (int lineNum, char string[]);
+/* int binToDec(char string[], int begin, int end); */
+/* int verifyMIPSInstruction (int lineNum, char string[]); */
 
 int main(int argc, char *argv[])
 {
@@ -72,7 +72,12 @@ int main(int argc, char *argv[])
         if (buffer[length - 1] == '\n')
             buffer[length - 1] = '\0';      /* convert newline to null byte */
 
-        
+	if(verifyMIPSInstruction(lineNum, buffer) != 0) {
+		printf("%i ... %i: %i\n", 0, 31, binToDec(buffer, 0, 31));
+	}
+	else {
+		printf("verifyMIPSInstruction seems to have returned false.\n");
+	}
         /* Verify that the string is 32 0's and 1's.  If it is, do
          * various tests to ensure that binToDec works correctly.
          * If the string is invalid, verifyMIPSinstruction should print
