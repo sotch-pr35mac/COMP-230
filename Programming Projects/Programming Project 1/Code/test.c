@@ -72,22 +72,18 @@ int main(int argc, char *argv[])
         if (buffer[length - 1] == '\n')
             buffer[length - 1] = '\0';      /* convert newline to null byte */
 
+	printf("about to evaluate verifyMIPSInstructions.\n");
+
 	if(verifyMIPSInstruction(lineNum, buffer) != 0) {
+		printf("verifyMIPSInstructions evaluated successfully.\n");
 		printf("%i ... %i: %i\n", 0, 31, binToDec(buffer, 0, 31));
+		printf("binToDec evaluated successfully.\n");
 	}
 	else {
+		printf("verifyMIPSInstructions evaluated successfully.\n");
 		printf("verifyMIPSInstruction seems to have returned false.\n");
+		printf("binToDec has not evaluated.\n");
 	}
-        /* Verify that the string is 32 0's and 1's.  If it is, do
-         * various tests to ensure that binToDec works correctly.
-         * If the string is invalid, verifyMIPSinstruction should print
-         * an informative error message.
-         */
-        /* CODE MISSING !!!
-         * An example of a test call to binToDec:
-         *   printf("3..5: %d\n", binToDec(buffer, 3, 5));
-         */
-
     }
 
     /* End-of-file encountered; close the file. */
