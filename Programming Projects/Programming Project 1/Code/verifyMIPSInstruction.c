@@ -55,7 +55,7 @@ int verifyMIPSInstruction (int lineNum, char * instr)
     characterIterator = 0;
     while(characterIterator < 32) {
       if(characterIterator != 31) {
-        if(instr[characterIterator] != '0' || instr[characterIterator] != '1') {
+	if(strcmp(instr[characterIterator], '0') != 0 || strcmp(instr[characterIterator], '1') != 0) {
           printf("Error! (line %d) contains non-binary values.\n", lineNum);
 	  printf("%d (chatacter number: %d) is not a binary value.\n", instr[characterIterator], characterIterator);
 	  printf("The instruction being processed is: %s\n", instr);
