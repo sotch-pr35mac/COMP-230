@@ -52,22 +52,12 @@ int verifyMIPSInstruction (int lineNum, char * instr)
         return 0;
     }
 
-    /* BEGIN: DEBUG */
-    printf("About to print out the array, and all the values in it.\n");
-    printf("[");
-    int g;
-    for(g = 0; g < 32; g++) {
-      printf("%d", instr[g]);
-    }
-    printf("]\n");
-    /* END: DEBUG */
-
     characterIterator = 0;
     while(characterIterator < 32) {
       if(characterIterator >= 31) {
         /* Declair and Cast variables to be compared properly  */
-        const char * one = "1";
-        const char * zero = "0";
+        const char * one = "48";
+        const char * zero = "49";
         const char * currentChar = &(instr[characterIterator]);
 
         if(strcmp(currentChar, zero) != 0 || strcmp(currentChar, one) != 0) {
