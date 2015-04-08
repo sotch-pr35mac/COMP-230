@@ -35,7 +35,7 @@ void tableInit (LabelTable * table)
         if ( table == NULL )
             return;
 
-        /* code missing ! */
+        /* TODO: (this shit) code missing ! */
 }
 
 int tableResize (LabelTable * table, int newSize)
@@ -80,8 +80,8 @@ int tableResize (LabelTable * table, int newSize)
 }
 
 int addLabel (LabelTable * table, char * label, int PC)
-  /* Postcondition: if label was already in table, the table is 
-   *      unchanged; otherwise a new entry has been added to the 
+  /* Postcondition: if label was already in table, the table is
+   *      unchanged; otherwise a new entry has been added to the
    *      table with the specified label name and instruction address
    *      (memory location) and the table has been resized if necessary.
    * Returns 1 if no fatal errors occurred; 0 if memory allocation error
@@ -103,17 +103,17 @@ int addLabel (LabelTable * table, char * label, int PC)
         }
 
         /* Was the label already in the table? */
-           /* code missing ! */        /* BTW, this is not a FATAL error */
+           /* TODO: this shit: code missing ! */        /* BTW, this is not a FATAL error */
 
         /* Resize the table if necessary. */
         if ( table->nbrLabels >= table->capacity )
-           /* code missing ! */
+           /* TODO: This shit: code missing ! */
            /* Tip:  Choose a new size that will work even if current
             *       capacity is 0.
             */
 
         /* Add the label */
-           /* code missing ! */
+           /* TODO: this shit! code missing ! */
 
         return 1;               /* everything worked great! */
 }
@@ -123,7 +123,7 @@ int findLabel (LabelTable * table, char * label)
    *      not in the table or table doesn't exist
    */
 {
-        /* code missing ! */
+        /* TODO: This shit: code missing ! */
 }
 
 void printLabels (LabelTable * table)
@@ -140,6 +140,11 @@ void printLabels (LabelTable * table)
             (void) printf ("There are %d labels in the table:\n",
                                     table->nbrLabels);
 
-            /* code missing ! */
+            i = 0;
+            while(i < table->nbrLabels) {
+              //printf("Label Number: %d")
+
+              i++;
+            }
         }
 }
