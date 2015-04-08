@@ -52,7 +52,15 @@ int verifyMIPSInstruction (int lineNum, char * instr)
         return 0;
     }
 
-   printf("about to iterate through the whole thing.\n");
+    /* BEGIN: DEBUG */
+    printf("About to print out the array, and all the values in it.\n");
+    printf("[");
+    int g;
+    for(g = 0; g < 32; g++) {
+      printf("%d", instr[g]);
+    }
+    printf("]\n");
+    /* END: DEBUG */
 
     characterIterator = 0;
     while(characterIterator < 32) {
