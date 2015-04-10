@@ -11,7 +11,6 @@
  *   Modified:  12/20/2000   Updated postcondition information.
  *   Modified:  4/19/2013    Modernized call to fprintf for errors.
  *
- * WARNING: These functions are incomplete!!!!!
 */
 
 #include <stdlib.h>
@@ -22,20 +21,28 @@
 
 static const char * ERROR1 = "Error: cannot allocate space in memory.\n";
 static const char * ERROR2 = "Error: a duplicate label was found.\n";
+static const char * ERROR3 = "Error: table does not exist.\n";
 
 const int SAME = 0;             /* useful for making strcmp readable */
                                 /* e.g., if (strcmp (str1, str2) == SAME) */
 
-void tableInit (LabelTable * table)
-  /* Postcondition: table is initialized to indicate that there
-   *       are no label entries in it.
-   */
-{
-        /* make sure that table exists */
-        if ( table == NULL )
-            return;
+/*
+* Post-Condition: table is initialized to indicate that there are no label entries.
+*/
+void tableInit (LabelTable * table) {
+  /* make sure that the table exists */
+  if(table == NULL) {
+    printf("%s", ERROR3);
+    return;
+  }
 
-        /* TODO: (this shit) code missing ! */
+  if(table->nbrLabels < 1) {
+    printf("The table is initialized with no labels in it.\n");
+    return;
+  }
+  else {
+    printf("Error! The table is initialized with %d label in it.\n", table->nbrLabels);
+  }
 }
 
 int tableResize (LabelTable * table, int newSize)
@@ -52,8 +59,10 @@ int tableResize (LabelTable * table, int newSize)
         int          smaller;
 
         /* make sure that table exists */
-        if ( table == NULL )
+        if ( table == NULL ) {
+            printf("Error! The table does not exist.\n");
             return 0;
+        }
 
         /* create a new internal table of the specified size */
         if ((newEntryList = malloc (newSize * sizeof(LabelEntry))) == NULL)
@@ -107,7 +116,7 @@ int addLabel (LabelTable * table, char * label, int PC)
         int i;
         i = 0;
         while(i < table->nbrLabels) {
-          if(label == table->entries[i]->label) {
+          if(strcmp(table->entries[i]->label, label) == SAME) {
             return 1;
           }
         }
@@ -141,7 +150,7 @@ int findLabel (LabelTable * table, char * label)
           i = 0;
           while(i < table->nbrLabels) {
             /* This line may or may not be a problem. */
-            if(label == table->entries[i]->label) {
+            if(strcmp(table->entries[i]->label, label) == SAME) {
               printf("Found label %s at index %d\n", label, i);
               return i;
             }
@@ -152,26 +161,26 @@ int findLabel (LabelTable * table, char * label)
         return -1;
 }
 
-void printLabels (LabelTable * table)
-  /* Postcondition: all the labels in the table have been printed
-   *      to the standard output.
-   */
-{
-        int i;
+/*
+* Post-Condition: all the labels in the table have been printed to the standard output.
+*/
+void printLabels(LabelTable * table) {
+  int i;
 
-        if ( table == NULL )
-            (void) printf ("Label Table is a NULL pointer.\n");
-        else
-        {
-            (void) printf ("There are %d labels in the table:\n",
-                                    table->nbrLabels);
+  if(table == NULL) {
+    (void) printf("Label Table is a NULL pointer.\n");
+  }
+  else {
+    (void) printf("There are %d labels in the table:\n", table->nbrLabels);
 
-            i = 0;
-            while(i < table->nbrLabels) {
-              /* This line may or may not be a problem. */
-              printf("Label Number: %d | Label: %s\n", i+1, table->entries[i]->label);
+    i = 0;
+    while(i < table->nbrLabels) {
+      /* This line may or may not be a probelm */
+      printf("Label Number: %d | Label: %s\m", i+1, table->entries[i]->label);
 
-              i++;
-            }
-        }
+      i++;
+    }
+  }
+
+  return;
 }
