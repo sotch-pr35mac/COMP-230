@@ -103,7 +103,14 @@ int addLabel (LabelTable * table, char * label, int PC)
         }
 
         /* Was the label already in the table? */
-           /* TODO: this shit: code missing ! */        /* BTW, this is not a FATAL error */
+        /* This code may or may not be a problem. */
+        int i;
+        i = 0;
+        while(i < table->nbrLabels) {
+          if(label == table->entries[i]->label) {
+            return 1;
+          }
+        }
 
         /* Resize the table if necessary. */
         if ( table->nbrLabels >= table->capacity )
@@ -113,7 +120,8 @@ int addLabel (LabelTable * table, char * label, int PC)
             */
 
         /* Add the label */
-           /* TODO: this shit! code missing ! */
+        /* This code may or may not be a problem. */
+        table->entries[table->nbrLabel] = label;
 
         return 1;               /* everything worked great! */
 }
@@ -132,6 +140,7 @@ int findLabel (LabelTable * table, char * label)
         else {
           i = 0;
           while(i < table->nbrLabels) {
+            /* This line may or may not be a problem. */
             if(label == table->entries[i]->label) {
               printf("Found label %s at index %d\n", label, i);
               return i;
@@ -159,6 +168,7 @@ void printLabels (LabelTable * table)
 
             i = 0;
             while(i < table->nbrLabels) {
+              /* This line may or may not be a problem. */
               printf("Label Number: %d | Label: %s\n", i+1, table->entries[i]->label);
 
               i++;
