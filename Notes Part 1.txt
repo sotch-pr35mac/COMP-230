@@ -177,4 +177,51 @@ Pointers
 	&i ==> 1000
 	*ip ==> 5
 
+MIPS:
+	Design Principals:
+		1. Simplicity favors regularity
+		2. Smaller is faster
+			(to a point -- why wouldn't 28 registers be faster than 32)
 
+	
+	Procedures: Two Analogies
+		-Subcontractor: Do this task, and give me your resutls when you're done.
+		-Restaurant Kitchen hatch: Waiter leaves menu order on a counter. Chef looks on the counter for an order, cookins the appropriate meal, leaves it on the counter. Server picks up the meal from the counter and deslivers it to the customer.
+	Procedures: a Seven-Step Program
+		* Place parameters in a place where the procedure can access them.
+		* Transfer control to the procedure.
+		- Acuire the storage resources needed for the procedure
+		- Perform the desired task
+		- RELEASE the storage resources needed for the procedure. (Not one of the steps listed in the book)
+		- Place the result values in a palce where the calling program can access them.
+		- Return control to the point of origin.
+			How does the procedure know where that would be? Calling program specifies where the procedure should return to -- the instruction following the call to the proccedure. This is set (automatically) as part of Step 2. 
+	
+		* = Contractor Job
+		- = Subcontractor Job
+
+
+	Place parameters in a place where the procedure can access them
+		- First save the "unsaved" registers if we will still care about them after procedure returns. Where do they get saved? the Stack
+		- Place the parameters in the "argument" registers
+	Tranfer control to the procedure.
+		- Store return location (address of instruction after jump) in $ra
+			(this happens automatically, see below)
+		-Jump to the procedure
+			NOTE: jal ProcedureAddress does the last two: Jump and Link saves address of next instruction in $ra and jumps to the specified address.
+	Acquire the sotrage resources needed for the procedure.
+		- Saves the "saved" registers that this procedure plans to use/clobber. Where do they get saved? the Stack
+		- Save the eturn address register if this procedure will call other procedures.
+	Perform the desired task.
+		- Perform the desired task. (may include calls to other procedures or recursive calls to this procedure.)
+	REALEASE the storage resources needed for the procedure.
+		- Restore the saved reigsters
+			Where were they saved? the Stack.
+	Place the result values in a place where the calling program can access them.
+	Return control to the point of origin.
+		- Jump to the address specified by $ra
+		- Calling program must retrieve values from $v0 and $v1 and retreieve any saved arguments and temporary registers from the stack.
+
+	** None o the register saves is automatic/guarenteed!!
+		
+		A big advantage of high-level languages is that compilers will always do this consistently and get it right.
