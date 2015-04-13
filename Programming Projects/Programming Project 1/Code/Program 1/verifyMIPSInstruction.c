@@ -69,7 +69,7 @@ int verifyMIPSInstruction (int lineNum, char * instr)
       }
       else {
         if(instr[characterIterator] != '\0') {
-          printf("Error! (line %d) does not contain a terminating null-byte.\n", lineNum);
+          //printf("Error! (line %d) does not contain a terminating null-byte.\n", lineNum);
         }
       }
 
