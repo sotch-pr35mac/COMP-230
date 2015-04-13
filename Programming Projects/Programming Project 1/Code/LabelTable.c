@@ -159,6 +159,7 @@ int findLabel(LabelTable * table, char * label) {
 * Post-Condition: all the labels in the table have been printed to the standard output.
 */
 void printLabels(LabelTable * table) {
+  LabelEntry *tabEntries = table->entries;
   int i;
 
   if(table == NULL) {
@@ -169,9 +170,9 @@ void printLabels(LabelTable * table) {
 
     i = 0;
     while(i < table->nbrLabels) {
-      /* TODO: This line may or may not be a problem */
-      printf("Label Number: %d | Label: %s\m", i+1, table->entries[i]->label);
+      printf("Label Address: %d | Label: %s\n", tabEntries->address, tabEntries->label);
 
+      tabEntries++;
       i++;
     }
   }
