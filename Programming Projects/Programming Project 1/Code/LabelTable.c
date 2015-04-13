@@ -141,12 +141,14 @@ int findLabel(LabelTable * table, char * label) {
     return -1;
   }
   else {
+    /* create a pointer to the entries in the table */
+    LabelEntry *tabEntries = table->entries;
     i = 0;
     while(i < table->nbrLabels) {
       /* TODO: This line may or may not be a problem. */
-      if(strcmp(table->entries[i]->label, label) == SAME) {
-        printf("Found label %s at index %d\n", label, i);
-        return i;
+      if(strcmp(tabEntries->label, label) == SAME) {
+        printf("Found label %s at index %d\n", label, tabEntries->address);
+        return tabEntries->address;
       }
     }
   }
@@ -159,6 +161,7 @@ int findLabel(LabelTable * table, char * label) {
 * Post-Condition: all the labels in the table have been printed to the standard output.
 */
 void printLabels(LabelTable * table) {
+  /* create a pointer to the entries in the table */
   LabelEntry *tabEntries = table->entries;
   int i;
 
