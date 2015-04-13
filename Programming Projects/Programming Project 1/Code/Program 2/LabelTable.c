@@ -53,7 +53,7 @@ void tableInit (LabelTable * table) {
  * Returns 1 if everything went OK; 0 if memory allocation error
  *      or table doesn't exist.
  */
-int tableResize(LabelTable * table, init newSize) {
+int tableResize(LabelTable * table, int newSize) {
   char * ptr; /* points to any byte in memory */
   LabelEntry * newEntryList;
   int smaller;
@@ -65,7 +65,7 @@ int tableResize(LabelTable * table, init newSize) {
   }
 
   /* create a new internal table of the specified size */
-  if((newentryList = malloc(newSize * sizeof(LabelEntry))) == NULL) {
+  if((newEntryList = malloc(newSize * sizeof(LabelEntry))) == NULL) {
     (void) fprintf(stderr, "%s", ERROR1);
     return 0;
   }
@@ -74,7 +74,7 @@ int tableResize(LabelTable * table, init newSize) {
   if(table->entries) {
     /* move contents of internal table to new internal table */
     smaller = table->nbrLabels < newSize ? table->nbrLabels : newSize;
-    (void) memcpy (newentryList, table->entries, smaller * sizeof(LabelEntry));
+    (void) memcpy (newEntryList, table->entries, smaller * sizeof(LabelEntry));
 
     /* free the space taken up by the old internal table */
     free (table->entries);
