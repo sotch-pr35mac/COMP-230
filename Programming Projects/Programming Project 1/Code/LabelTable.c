@@ -108,24 +108,21 @@ int addLabel(LabelTable * table, char * label, int PC) {
    }
 
    /* Was the label already in the table? */
-   /* TODO: This code may or may not be a problem. */
-   int i;
-   i = 0;
-   while(i < table->nbrLabels) {
-     if(strcmp(table->entries[i]->label, label) == SAME) {
-       return 1;
+   if(findLabel(table, label) == -1) {
+     if(table->nbrLabels >= table->capacity+1) {
+       /* Resize table */
+       tableResize(table, table->capacity+1);
      }
-   }
 
-   /* Resize the table if needed. */
-   if(table->nbrLabels >= table->capacity) {
-     /* TODO: this shit: code missing ! */
-     /* Tip: choose a new size that will work even if current capacity is 0. */
+    /* Add the label */
+     LabelEntry *tabEntries = table->entries + table->nbrLabels;
+     tabEntries->label = labelDuplicate;
+     tabEntries->address = PC;
+     table->nbrLabels++;
    }
-
-   /* Add the label */
-   /* TODO: This code may or may not be a problem. */
-   table->entries[table->nbrLabel] = label;
+   else {
+     printf("The label already exists.\n");
+   }
 
    return 1; /* everything worked great */
 }
@@ -145,7 +142,6 @@ int findLabel(LabelTable * table, char * label) {
     LabelEntry *tabEntries = table->entries;
     i = 0;
     while(i < table->nbrLabels) {
-      /* TODO: This line may or may not be a problem. */
       if(strcmp(tabEntries->label, label) == SAME) {
         printf("Found label %s at index %d\n", label, tabEntries->address);
         return tabEntries->address;
