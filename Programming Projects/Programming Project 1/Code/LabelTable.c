@@ -45,120 +45,114 @@ void tableInit (LabelTable * table) {
   }
 }
 
-int tableResize (LabelTable * table, int newSize)
-  /* Postcondition: table now has the capacity to hold newSize
-   *      label entries.  If the new size is smaller than the
-   *      old size, the table is truncated after the first
-   *      newSize entries.
-   * Returns 1 if everything went OK; 0 if memory allocation error
-   *      or table doesn't exist.
-   */
-{
-        char *       ptr;              /* points to any byte in memory */
-        LabelEntry * newEntryList;
-        int          smaller;
+/* Postcondition: table now has the capacity to hold newSize
+ *      label entries.  If the new size is smaller than the
+ *      old size, the table is truncated after the first
+ *      newSize entries.
+ * Returns 1 if everything went OK; 0 if memory allocation error
+ *      or table doesn't exist.
+ */
+int tableResize(LabelTable * table, init newSize) {
+  char * ptr; /* points to any byte in memory */
+  LabelEntry * newEntryList;
+  int smaller;
 
-        /* make sure that table exists */
-        if ( table == NULL ) {
-            printf("Error! The table does not exist.\n");
-            return 0;
-        }
+  /* make sure that the table actually exists */
+  if(table == NULL) {
+    printf("Error! The table does not exist.\n");
+    return 0;
+  }
 
-        /* create a new internal table of the specified size */
-        if ((newEntryList = malloc (newSize * sizeof(LabelEntry))) == NULL)
-        {
-            (void) fprintf (stderr, "%s", ERROR1);
-            return 0;
-        }
+  /* create a new internal table of the specified size */
+  if((newentryList = malloc(newSize * sizeof(LabelEntry))) == NULL) {
+    (void) fprintf(stderr, "%s", ERROR1);
+    return 0;
+  }
 
-        if ( table->entries )           /* if there were entries */
-        {
-            /* move contents of internal table to new internal table */
-            smaller = table->nbrLabels < newSize ? table->nbrLabels : newSize;
-            (void) memcpy (newEntryList, table->entries,
-                           smaller * sizeof(LabelEntry));
+  /* if there were entries */
+  if(table->entries) {
+    /* move contents of internal table to new internal table */
+    smaller = table->nbrLabels < newSize ? table->nbrLabels : newSize;
+    (void) memcpy (newentryList, table->entries, smaller * sizeof(LabelEntry));
 
-            /* free the space taken up by the old internal table */
-            free (table->entries);
-            table->nbrLabels = smaller;
-        }
+    /* free the space taken up by the old internal table */
+    free (table->entries);
+    table->nbrLabels = smaller;
+  }
 
-        table->entries = newEntryList;
-        table->capacity = newSize;
-        return 1;
+  table->entries = newEntryList;
+  table->capacity = newSize;
+  return 1;
 }
 
-int addLabel (LabelTable * table, char * label, int PC)
-  /* Postcondition: if label was already in table, the table is
-   *      unchanged; otherwise a new entry has been added to the
-   *      table with the specified label name and instruction address
-   *      (memory location) and the table has been resized if necessary.
-   * Returns 1 if no fatal errors occurred; 0 if memory allocation error
-   *      or table doesn't exist.
-   */
-{
-        char * labelDuplicate;
+/* Postcondition: if label was already in table, the table is
+ *      unchanged; otherwise a new entry has been added to the
+ *      table with the specified label name and instruction address
+ *      (memory location) and the table has been resized if necessary.
+ * Returns 1 if no fatal errors occurred; 0 if memory allocation error
+ *      or table doesn't exist.
+ */
+int addLabel(LabelTable * table, char * label, int PC) {
+  char * labelDuplicate;
 
-        /* make sure that table exists */
-        if ( table == NULL )
-            return 0;
+   /* make sure that the table actually exists */
+   if(table == NULL) {
+     return 0;
+   }
 
-        /* Create a dynamically allocated version of label that will persist. */
-        /*   NOTE: on some machines you may need to make this _strdup !  */
-        if ((labelDuplicate = strdup (label)) == NULL)
-        {
-            (void) fprintf (stderr, "%s", ERROR1);
-            return 0;           /* fatal error: couldn't allocate memory */
-        }
+   /* Create a dynamically allocated version of label that will persist. */
+   /* NOTE: on some machines you may need to make this _strdup ! */
+   if((labelDuplicate = strdup(label)) == NULL) {
+     (void) fprintf(stderr, "%s", ERROR1);
+     return 0; /* fatal error: couldn't allocate memory */
+   }
 
-        /* Was the label already in the table? */
-        /* This code may or may not be a problem. */
-        int i;
-        i = 0;
-        while(i < table->nbrLabels) {
-          if(strcmp(table->entries[i]->label, label) == SAME) {
-            return 1;
-          }
-        }
+   /* Was the label already in the table? */
+   /* This code may or may not be a problem. */
+   int i;
+   i = 0;
+   while(i < table->nbrLabels) {
+     if(strcmp(table->entries[i]->label, label) == SAME) {
+       return 1;
+     }
+   }
 
-        /* Resize the table if necessary. */
-        if ( table->nbrLabels >= table->capacity )
-           /* TODO: This shit: code missing ! */
-           /* Tip:  Choose a new size that will work even if current
-            *       capacity is 0.
-            */
+   /* Resize the table if needed. */
+   if(table->nbrLabels >= table->capacity) {
+     /* TODO: this shit: code missing ! */
+     /* Tip: choose a new size that will work even if current capacity is 0. */
+   }
 
-        /* Add the label */
-        /* This code may or may not be a problem. */
-        table->entries[table->nbrLabel] = label;
+   /* Add the label */
+   /* This code may or may not be a problem. */
+   table->entries[table->nbrLabel] = label;
 
-        return 1;               /* everything worked great! */
+   return 1; /* everything worked great */
 }
 
-int findLabel (LabelTable * table, char * label)
-  /* Returns the address associated with the label; -1 if label is
-   *      not in the table or table doesn't exist
-   */
-{
-        int i;
+/* Returns the address associated with the label; -1 if label is
+ *      not in the table or table doesn't exist
+ */
+int findLabel(LabelTable * table, char * label) {
+  int i;
 
-        if(table == NULL) {
-          printf("Label Table is a NULL pointer.\n");
-          return -1;
-        }
-        else {
-          i = 0;
-          while(i < table->nbrLabels) {
-            /* This line may or may not be a problem. */
-            if(strcmp(table->entries[i]->label, label) == SAME) {
-              printf("Found label %s at index %d\n", label, i);
-              return i;
-            }
-          }
-        }
+  if(table == NULL) {
+    printf("Label Table is a NULL pointer.\n");
+    return -1;
+  }
+  else {
+    i = 0;
+    while(i < table->nbrLabels) {
+      /* This line may or may not be a problem. */
+      if(strcmp(table->entries[i]->label, label) == SAME) {
+        printf("Found label %s at index %d\n", label, i);
+        return i;
+      }
+    }
+  }
 
-        printf("The label %s was not found.\n", label);
-        return -1;
+  printf("The label %s was not found.\n", label);
+  return -1;
 }
 
 /*
