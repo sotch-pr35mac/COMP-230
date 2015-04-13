@@ -73,4 +73,5 @@ int main(int argc, char *argv[]) {
   printLabels(testTable);
 
   printf("Test complete. Your program passed %d tests, and failed %d tests.\n", successCounter, failureCounter);
+  return 1;
 }
