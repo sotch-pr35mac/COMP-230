@@ -45,9 +45,7 @@ int binToDec(char string[], int begin, int end)
 	int beginPrime = begin;
 
 	while(beginPrime < end) {
-		if(string[beginPrime] == '1') {
-			decimal = decimal + (string[end - 1 - i] * string[end - 1 - i]);
-		}
+		decimal = 2 * decimal + ((string[i] == one) ? 1 : 0);
 
 		i++;
 		beginPrime++;

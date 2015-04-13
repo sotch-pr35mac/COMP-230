@@ -108,7 +108,7 @@ int addLabel(LabelTable * table, char * label, int PC) {
    }
 
    /* Was the label already in the table? */
-   /* This code may or may not be a problem. */
+   /* TODO: This code may or may not be a problem. */
    int i;
    i = 0;
    while(i < table->nbrLabels) {
@@ -124,7 +124,7 @@ int addLabel(LabelTable * table, char * label, int PC) {
    }
 
    /* Add the label */
-   /* This code may or may not be a problem. */
+   /* TODO: This code may or may not be a problem. */
    table->entries[table->nbrLabel] = label;
 
    return 1; /* everything worked great */
@@ -143,7 +143,7 @@ int findLabel(LabelTable * table, char * label) {
   else {
     i = 0;
     while(i < table->nbrLabels) {
-      /* This line may or may not be a problem. */
+      /* TODO: This line may or may not be a problem. */
       if(strcmp(table->entries[i]->label, label) == SAME) {
         printf("Found label %s at index %d\n", label, i);
         return i;
@@ -169,7 +169,7 @@ void printLabels(LabelTable * table) {
 
     i = 0;
     while(i < table->nbrLabels) {
-      /* This line may or may not be a probelm */
+      /* TODO: This line may or may not be a problem */
       printf("Label Number: %d | Label: %s\m", i+1, table->entries[i]->label);
 
       i++;
