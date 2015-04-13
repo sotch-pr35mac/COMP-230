@@ -5,11 +5,12 @@
  * creating, maintaining, and using a table of assembly language
  * instruction labels and the memory addresses associated with them.
  *
- * Author: Alyce Brady
+ * Author: Alyce Brady, Preston Stosur-Bassett
  *
  * Creation Date:   2/16/99
  *   Modified:  12/20/2000   Updated postcondition information.
  *   Modified:  4/19/2013    Modernized call to fprintf for errors.
+ *   Modified:  4/9/2015     Finsished Code
  *
 */
 
