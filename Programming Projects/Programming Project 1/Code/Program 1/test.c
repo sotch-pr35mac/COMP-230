@@ -14,7 +14,7 @@
  *              -A 32 bit binary sequence
  *              -A non-32 bit binary sequence, any sequence of characters that the program should be able to handle and error report for.
  *
- * TODO: Output:
+ * Output:
  *      For each valid line, the program prints a series of decimal
  *      numbers to test binToDec, representing
  *

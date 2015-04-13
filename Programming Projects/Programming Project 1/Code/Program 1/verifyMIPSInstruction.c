@@ -19,11 +19,8 @@
  *		            contains invalid characters
  *	    Output: Prints an error message to stderr if necessary
  *
- * TODO: Implementation:
- *	Describe interesting implementation details here, if any.
- *      (HOW does this function work?  What non-trivial data structures
- *	or algorithms does it use?  Does it have performance
- *	characteristics that the user should be aware of?)
+ * Implementation:
+ *	The program ensures that each instruction is exactly 32 bits long (0 ... 31) and that it contains only '1' '0' character values (49 and 48 binary values respectively)
  *
  * Author: Preston Stosur-Bassett
  *	with assistance from: Alyce Brady
