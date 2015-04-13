@@ -6,18 +6,19 @@
  *      MIPS instruction, the program calls binToDec for various
  *      segments of the instruction to test the binToDec function.
  *
- * TODO: Input:
+ * Input:
  *      The program reads its input from a file passed in as a parameter
  *      on the command line, or reads from the standard input.
  *      To test verifyMIPSInstruction, the file should contain ...
  *
- *              DESCRIBE NECESSARY TEST CASES HERE
+ *              -A 32 bit binary sequence
+ *              -A non-32 bit binary sequence, any sequence of characters that the program should be able to handle and error report for.
  *
  * TODO: Output:
  *      For each valid line, the program prints a series of decimal
  *      numbers to test binToDec, representing
  *
- *              DESCRIBE NECESSARY TEST CASES HERE
+ *             -A the decimal value for the binary value that was passed
  *
  *      For each invalid line, the program prints an error message to
  *      stderr saying so.  (The program also prints an error message if
@@ -72,17 +73,8 @@ int main(int argc, char *argv[])
         if (buffer[length - 1] == '\n')
             buffer[length - 1] = '\0';      /* convert newline to null byte */
 
-	printf("about to evaluate verifyMIPSInstructions.\n");
-
 	if(verifyMIPSInstruction(lineNum, buffer) != 0) {
-		printf("verifyMIPSInstructions evaluated successfully.\n");
 		printf("%i ... %i: %i\n", 0, 31, binToDec(buffer, 0, 31));
-		printf("binToDec evaluated successfully.\n");
-	}
-	else {
-		printf("verifyMIPSInstructions evaluated successfully.\n");
-		printf("verifyMIPSInstruction seems to have returned false.\n");
-		printf("binToDec has not evaluated.\n");
 	}
     }
 
