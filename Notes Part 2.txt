@@ -37,6 +37,7 @@ Copying Over some Code:
 	int main(int argc, char * argv[]) {
 		int x, y;
 		int z[20];
+		z[3] = 4;
 		...
 		x = A(x, y, z);
 		...
@@ -62,3 +63,41 @@ Copying Over some Code:
 		addi $sp, $sp, 104
 		move $v0, $zero
 		jr $ra
+
+	int B(int numVals, int * c) {
+		int sum = 0;
+		int i;
+		for(i = 0; i < numVals; i++) {
+			c[i] = c[i] + i;
+			sum += c[i];
+		}
+		return sum;
+	}
+
+	B:	addi $t0, $zero, 0		## a0 = numVals, a1 = C
+		addi $t1, $zero, $zero		## t1 = i = 0
+	Loop: 	slt $t2, $t1, $a0		## t2 = 1 if i <numVals
+		beq $t2, $zero, ENDLOOP		## branch if !(i<numVals)
+		move $t3, $t1			## t3 = i
+		sll $t3, $t3, 2			## t3 = 4 * i
+		add $t3, $t3, $a1		## t3 = &c[i]
+		lw $t4, 0($t3)			## t4 = c[i]
+		add $t4, $t4, $t1		## t4 = c[i] + i
+		sw $t4, 0($t3)			
+		add $t0, $t0, $t4		## sum += c[i]
+		addi $t1, $t1, 1		## i++
+		j LOOP				## go to top of loop
+	ENDLOOP move $v0, $t0			## v0 is sum for return
+		jr $ra
+
+	optB: 	addi $v0, $zero, 0		## v0 = sum = 0
+		add $t1, $a1, $zero		## t1 = &c[0] = c
+		sll $a0, $a0, 2			## a0, numVals * 4
+		add $t0, $a1, $a0		## t0 = &c[numVals]
+	Loop: 	slt $t2, $t1, $t0 		## set t2 to 1 if ptr < &c[numvals]
+		beq $t0, $zero, ENDLOOP		## branch to endloop if t2 = 0
+		lw $t4, 0($t1)			## t4 = c[i]; t4 = *(&c[i])
+
+-More information on the above can be found here(http://www.cs.kzoo.edu/cs230/lectures/MIPS/arraysVsPointers.txt) and here(http://www.cs.kzoo.edu/cs230/lectures/MIPS/arraysVsPointers.txt)
+
+
