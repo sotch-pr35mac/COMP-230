@@ -1,0 +1,64 @@
+Computer Organization Notes Part 2
+
+The Stack
+	- Stack is an area of memory devoted to the current program.
+		- $sp is a special register used to contain the address of the beginning of the stack being used by this procedure.
+		- Stack grrows from higher addresses to lower address.
+		- Decrement by 4 (size of word) to push
+		- Increment by 4 (size of word) to pop
+	- Stack also contains local variables
+
+	(In all these instances, the term "static" means that the compiler knows what these variables and values are before the runtime, it doesn't depend on the running of the program
+	(In all these instances, the term "dynamic" means that the the compiler has no idea what the variables and values are before runtime, and that they depend on the actual running of the program.
+
+	- Activation record is a block of the Stack used by a specific instance (activation) of a procedure.
+		- Why isn't it a "procedure record"
+
+
+Copying Over some Code:
+	
+	int A(int a, int b, int * c) {
+		if(a==c[2]) {
+			b += 2;
+		}
+		a = a - b;
+
+		return a;
+	}
+
+	A:	lw $t0, 8($a2)
+		bne $a0, $t0, ENDIF
+		sll $a1, $a1, 1
+	ENDIF:	sub $a0, $a0, $a1
+		add $v0, $a0, $zero
+		
+		jr $ra
+
+	int main(int argc, char * argv[]) {
+		int x, y;
+		int z[20];
+		...
+		x = A(x, y, z);
+		...
+		return 0;
+	}
+	
+	main:	addi $sp, $sp, -104
+		sw $ra, 0($sp)
+		sw $a0, 4($sp)
+		sw $a2, 12($sp)
+		sw $s0, 15($sp)
+		addi $s2, $sp, 24
+		addi $t0, $zero, 4	# t0 = 4
+		sw $t0, 12($s2)
+		...
+		move $a0, $s0		# move x, y, z to
+		move $a1, $s1		# a0, a1, a2
+		move $a2, $s2
+		jal A			# call A
+		move $s0, $v0		# store return value in x
+		lw $a2, 12($sp)
+		lw $a1, 8($sp)
+		addi $sp, $sp, 104
+		move $v0, $zero
+		jr $ra
