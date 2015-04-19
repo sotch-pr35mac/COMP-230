@@ -90,13 +90,29 @@ Copying Over some Code:
 	ENDLOOP move $v0, $t0			## v0 is sum for return
 		jr $ra
 
+	int B(int numVals, int * c) {
+		int sum = 0;
+		int * ptr;
+		for(ptr = C; ptr<C+numVals; ptr++) {
+			*ptr = *ptr * 2;
+			sum += *ptr;
+		}
+		return sum;
+	}
+
 	optB: 	addi $v0, $zero, 0		## v0 = sum = 0
 		add $t1, $a1, $zero		## t1 = &c[0] = c
 		sll $a0, $a0, 2			## a0, numVals * 4
 		add $t0, $a1, $a0		## t0 = &c[numVals]
 	Loop: 	slt $t2, $t1, $t0 		## set t2 to 1 if ptr < &c[numvals]
-		beq $t0, $zero, ENDLOOP		## branch to endloop if t2 = 0
+		beq $t2, $zero, ENDLOOP		## branch to endloop if t2 = 0
 		lw $t4, 0($t1)			## t4 = c[i]; t4 = *(&c[i])
+		sll $t4, $t4, 1			## t4 = c[i] * 2
+		sw $t4, 0($t1)			## c[i] = c[i] * 2
+		add $v0, $v0, $t4		## sum += c[i]
+		addi $t1, $t1, 4   		## ptr = ptr + 4 (nextptr)
+		j LOOP
+	ENDLOOP
 
 -More information on the above can be found here(http://www.cs.kzoo.edu/cs230/lectures/MIPS/arraysVsPointers.txt) and here(http://www.cs.kzoo.edu/cs230/lectures/MIPS/arraysVsPointers.txt)
 

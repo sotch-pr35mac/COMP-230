@@ -1,0 +1,52 @@
+1. 
+	What MIPS instruction does the binary number below represent?
+	<code lang="text/binary">
+		000000 01000 01000 01000 00000 100000
+	</code>
+	<code lang="text/MIPS">
+		add $t0, $t0, $t0 	## set t0 to the sum of t0 and t0
+	</code>
+2. 
+	Translate the following C code to MIPS assemblly code. Use the minimum number of instructions. Assume that the values of a, b, i and j are in registers $s0, $s1, $t0 and $t1, repsectively. Also assume that register $s2 holds the base address of the array D.
+	<code lang="text/c">
+		for(i = 0; i < a; i++) {
+			for(j = 0; j < b; j++) {
+				D[4*j] = i + j;
+			}
+		}
+	</code>
+
+	<code lang="text/mips">
+		## Assume a = $s0
+		##	  b = $s1
+		##	  i = $t0
+		##        j = $t1
+		## Assume the base address of D is stored in $s2
+				sw $t0, $zero			## i = 0
+		FIRSTLOOP: 	slt $t2, $t0, $s0		## \__ if(i < a) { EXIT }
+				bne $t2, $zero, EXIT		## /
+				sw $t1, $zero			## j = 0;
+				j SECONDLOOP			## SECONDLOOP()
+				addi $t0, $t0, 1		## i++
+				j FIRSTLOOP			## FIRSTLOOP()
+		SECONDLOOP:	slt $t3, $t1, $s1		## \__ if(j < b) { FIRSTLOOP } 
+				bne $t3, $zero, FIRSTLOOP	## /
+				add $t5, $t0, $t1		## t5 = i + j
+				sll $t4, $t1, 2			## t4 = j * 4
+				add $t6, $t4, $s2		## t6 = t4 + s2
+				sw $t5, 0($t6)			## D[4*j] = i + j
+				addi $t1, $t1, 1		## j++
+				j SECONDLOOPS			## SECONDLOOP()
+		EXIT:						## EXIT()
+	</code>
+3. 
+	For the C code in the previous question, how many MIPS instructions does it take to implement the C code? If the variables a and b are initialized to 10 and 1 and all elements of D are initially 2, what is the total number of MIPS instructions that is executed to complete the loop?
+	It takes approximately 15 lines of MIPS instructions to implement the C code. 
+	When a = 10, b = 1 and D[0 ... D.length - 1] = 2, 89 MIPS instructions have to execute for the loops to complete.
+4.
+	Write MIPS assembly code that create the following 32-bit constant and stores that value to the register $t1.
+	<code lang="text/binary">
+		0010 0000 0000 0001 0100 1001 0010 0100
+	</code>
+	This can be done using only instructions we have discussed in class, although you may use any of the instructions from the table in Figure 2.1 (p. 64), including ones we have not used in class, if you wish. 
+	
