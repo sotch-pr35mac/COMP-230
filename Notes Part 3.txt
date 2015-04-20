@@ -29,4 +29,15 @@ Negative Numbers
 		This also makes thing pretty hard to do arithmatic
 		What is 1 - 2? (in your own opinion), well, so, like when you add these two together using this method, we get -3. That makes me feel really uncomfortable and a little bit violated.
 	1's complement
+		You just flip every 0 to a 1 and every 1 to a zero, and then that number is the negative representation. 
+		dec1 = bin00001
+		dec-1 = bin11110
+		This doesn't work too well because we will still have a negative 0 representation in this system and then it becomes a problem again.
+		This is not really an okay thing, so 2's compliment has to be the best option out of the 3.
 	2's complement
+		With this there is no representation for negative zero, which makes arithmatic much easier.
+		So we do still have a sign bit here, but the rest of the numbers are NOT the magnitude
+		-Calculation of 2's compliment:
+			1. First you want to take your binary number that you want to represent as a negative value and calculate the 1's compliment of it. 
+			2. Then you want to add 1 to the 1's compliment of the number in a negative representation
+			3. Now you have the 2's compliment, which is hands down the best compliment.
