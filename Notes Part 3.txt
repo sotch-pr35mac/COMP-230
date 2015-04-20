@@ -1,0 +1,32 @@
+Computer Organization (CS230) Notes Part 3
+
+Test Cases:
+	verifyMIPSInstruction
+		empty line
+		line too long
+		line too short
+		line with one character
+		line with only 31 characters
+		0 and a 1 in the first position, and last position in valid string
+		Also need to test for invalid characters
+		If you are going to have to test for invalid characters, you have to test in a valid 32 bit string	
+	binToDec
+		begin and end
+		The documentation said that we should check to see if begin is greater than end
+		begin is less than 0 and greater than 31
+		also check to see if begin is equal to end
+
+Negative Numbers
+	Sign and Magnitude
+		<code lang="text/binary">
+			10101010
+		</code>
+		-In sign and magnitude the first bit would be the sign, and the rest would be the magnitude or value of the string
+		We can have 2^8 different numbers
+		unsgined: 0 ... (2^8 - 1)
+		signed: -(2^7 -1) ... 0 ... (2^7 - 1)
+		This means that you can have a negative 0, and then you can have positive 0, and these two are NOT EQUIVALENT
+		This also makes thing pretty hard to do arithmatic
+		What is 1 - 2? (in your own opinion), well, so, like when you add these two together using this method, we get -3. That makes me feel really uncomfortable and a little bit violated.
+	1's complement
+	2's complement

@@ -49,4 +49,14 @@
 		0010 0000 0000 0001 0100 1001 0010 0100
 	</code>
 	This can be done using only instructions we have discussed in class, although you may use any of the instructions from the table in Figure 2.1 (p. 64), including ones we have not used in class, if you wish. 
-	
+	<code lang="text/MIPS">
+		sw $t1, 536955172
+	</code>
+5.
+	If the current value of the PC is
+	<code lang="text/binary">
+		000 000 000 000 000 000 000 000
+	</code>
+	can you use a single jump instruction to get the PC address represented by the constant in the previous question.
+
+	Yes.
