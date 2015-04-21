@@ -19,11 +19,8 @@
  *		            contains invalid characters
  *	    Output: Prints an error message to stderr if necessary
  *
- * TODO: Implementation:
- *	Describe interesting implementation details here, if any.
- *      (HOW does this function work?  What non-trivial data structures
- *	or algorithms does it use?  Does it have performance
- *	characteristics that the user should be aware of?)
+ * Implementation:
+ *	The program ensures that each instruction is exactly 32 bits long (0 ... 31) and that it contains only '1' '0' character values (49 and 48 binary values respectively)
  *
  * Author: Preston Stosur-Bassett
  *	with assistance from: Alyce Brady
@@ -34,6 +31,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include "verifiers.h"
 
 int verifyMIPSInstruction (int lineNum, char * instr)
   /*  returns 1 if instr contains 32 characters representing binary
@@ -54,14 +52,21 @@ int verifyMIPSInstruction (int lineNum, char * instr)
     characterIterator = 0;
     while(characterIterator < 32) {
       if(characterIterator != 31) {
-        if(instr[characterIterator] != '0' || instr[characterIterator] != '1') {
+        /* Declair and Cast variables to be compared properly  */
+        char one = '1';
+        char zero = '0';
+        char currentChar = instr[characterIterator];
+
+        if(currentChar != one && currentChar != zero) {
           printf("Error! (line %d) contains non-binary values.\n", lineNum);
+          printf("%d (chatacter number: %d) is not a binary value.\n", instr[characterIterator], characterIterator);
+          printf("The instruction being processed is: %s\n", instr);
           return 0;
         }
       }
       else {
-        if(instrc[characterIterator] != '\0') {
-          printf("Error! (line %d) does not contain a terminating null-byte.\n", lineNum);
+        if(instr[characterIterator] != '\0') {
+          //printf("Error! (line %d) does not contain a terminating null-byte.\n", lineNum);
         }
       }
 

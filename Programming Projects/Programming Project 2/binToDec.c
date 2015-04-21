@@ -23,11 +23,8 @@
  * string being converted is long enough (end - begin + 1 == 32)
  * and if the first character is '1'.
  *
- * TODO: Implementation:
- *	Describe interesting implementation details here, if any.
- *      (HOW does this function work?  What non-trivial data structures
- *	or algorithms does it use?  Does it have performance
- *	characteristics that the user should be aware of?)
+ * Implementation:
+ * binToDec takes an array of char values and parses through them to find the decimal interger value from the beginning and end index provided
  *
  * Author:  Preston Stosur-Bassett
  *	with assistance from: Alyce Brady
@@ -36,6 +33,14 @@
  *
  */
 
+#include "verifiers.h"
+
+/*
+*	@param: char stringp[] is a non-empty string of '1' or '0' characters, with binary values of 49 or 48 respectively
+*	@param: int begin is an integer value for where to start the the binary to decimal conversion
+*	@param: int end is an integer value for where to end the binary to decimal conversion
+*	@Post-Condition: decimal is a decimal integer value for the beginning and end index in the string of binary values
+*/
 int binToDec(char string[], int begin, int end)
 {
 	int i = 0;
@@ -43,9 +48,7 @@ int binToDec(char string[], int begin, int end)
 	int beginPrime = begin;
 
 	while(beginPrime < end) {
-		if(string[beginPrime] == '1') {
-			decimal = decimal + (string[end - 1 - i] * string[end - 1 - i]);
-		}
+		decimal = 2 * decimal + ((string[i] == '1') ? 1 : 0);
 
 		i++;
 		beginPrime++;
