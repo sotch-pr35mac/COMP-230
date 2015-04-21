@@ -1,4 +1,11 @@
 /*
+ * File: getRegName.h
+ * Author: Preston Stosur-Bassett
+ * Date: 19.4.15
+ * Description: TODO: write description
+*/
+
+/*
  * This function looks up and returns the mnemonic name for a given
  * register number.
  *
@@ -19,40 +26,5 @@
  *	  printf ("add %s, %s, %s\n", rName1, rName2, rName3);
  *    If rNbr1 = 8, rNbr2 = 9, rNbr3 = 16, this will print:
  *		add $t0, $t1, $s0
- *
- * Author: Alyce Brady and Garrett Olson
- * Date:   2/10/99
  */
-
-#include <stdio.h>
-#include <string.h>
-#include "getRegName.h"
-
-char * getRegName (int regNbr)
-  /* returns mnemonic name for given register */
-{
-	/* Create a static (persistent) array of the mnemonic names,
-	 *    each of which is a string (char *).
-	 */
-	static char * regArray[] = {
-		"$zero",
-		"$at",
-		"$v0","$v1",
-		"$a0","$a1","$a2","$a3",
-		"$t0","$t1","$t2","$t3","$t4","$t5","$t6","$t7",
-		"$s0","$s1","$s2","$s3","$s4","$t5","$s6","$s7",
-		"$t8","$t9",
-		"$k0","$k1",
-		"$gp",
-		"$sp",
-		"$fp",
-		"$ra"
-	};
-
-	if(regArray[regNbr] != NULL) {
-		return regArray[regNbr];
-	}
-	else {
-		return "NULL";
-	}
-}
+char * getRegName(int regNbr);
