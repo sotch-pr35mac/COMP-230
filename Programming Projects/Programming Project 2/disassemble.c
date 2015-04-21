@@ -23,11 +23,10 @@ int opCode(char instruction[]) {
 
 /*
  * @Description: <code>getFormat</code> gets the format of the MIPS instruction and returns it as a char
- * @Pre-Condition: <code>char instruction[]</code> is a 'string' (and array of char's) is a valid 32-bit MIPS instruction, where the first 6 bits are the op-code.
+ * @Pre-Condition: <code>int decimalOpCode</code> is the decimal representation of the valid 32-bit MIPS instruction opCode.
  * @Post-Condition: returns the correct format for the instruction that was passed.
 */
-char* getFormat(char instruction[]) {
-  int decimalOpCode = binToDec(instruction, 0, 6);
+char* getFormat(int decimalOpCode) {
   char* format;
   if(decimalOpCode == 0) {
     format = "R";
@@ -39,6 +38,29 @@ char* getFormat(char instruction[]) {
     format = "I"
   }
   return format;
+}
+
+/*
+ * TODO: write the function spec for this function
+*/
+int getShiftAmount(char instruction[]) {
+  int shiftAmount = binToDec(instruction, 21, 26);
+  return shiftAmount;
+}
+
+/*
+ * TODO: write the function spec for this function
+*/
+int getFunctionCode(char instruction[]) {
+  int functionCode = binToDec(instruction, 26, 32);
+}
+
+/*
+ * TODO: write the function spec for this function
+*/
+int getRegNum(char instruction[], int regPlacement) {
+  int regNum = binToDec(instruction, 6 + 5*(regPlacement), 11 + 5*(regPlacement));
+  return regNum
 }
 
 /*
@@ -117,19 +139,4 @@ char * getJCommand(int opCode) {
   else {
     return "NULL";
   }
-}
-
-/*
- * TODO: write the function spec for this function
-*/
-int getShiftAmount(char instruction[]) {
-  int shiftAmount = binToDec(instruction, 21, 26);
-  return shiftAmount;
-}
-
-/*
- * TODO: write the function spec for this function
-*/
-int getFunctionCode(char instruction[]) {
-  int functionCode = binToDec(instruction, 26, 32);
 }

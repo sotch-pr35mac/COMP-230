@@ -14,10 +14,10 @@ int opCode(char instruction[]);
 
 /*
  * @Description: <code>getFormat</code> gets the format of the MIPS instruction and returns it as a char
- * @Pre-Condition: <code>char instruction[]</code> is a 'string' (and array of char's) is a valid 32-bit MIPS instruction, where the first 6 bits are the op-code.
+ * @Pre-Condition: <code>int decimalOpCode</code> is the decimal representation of the valid 32-bit MIPS instruction opCode.
  * @Post-Condition: returns the correct format for the instruction that was passed.
 */
-char* getFormat(char instruction[]);
+char* getFormat(int decimalOpCode);
 
 /*
  * @Description: <code>getRFunction</code> gets the function name of the valid 32-bit MIPS R-format instruction.
@@ -45,3 +45,6 @@ int getShiftAmount(char instruction[]);
 
 /* TODO: put function spec here */
 int getFunctionCode(char instruction[]);
+
+/* TODO: put the function spec here */
+int getRegNum(char instruction[], int regPlacement);

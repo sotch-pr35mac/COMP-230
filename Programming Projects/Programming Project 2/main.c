@@ -1,8 +1,4 @@
-/*
- * File: main.c
- *
-*/
-
+/* TODO: change the file internal documentation */
 /*
  * Test Driver to test verifyMIPSInstruction and binToDec.
  *
@@ -40,9 +36,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include "verifiers.h"
-
-/* int binToDec(char string[], int begin, int end); */
-/* int verifyMIPSInstruction (int lineNum, char string[]); */
+#include "disassemble.h"
+#include "getRegName.h"
 
 int main(int argc, char *argv[])
 {
@@ -78,9 +73,50 @@ int main(int argc, char *argv[])
         if (buffer[length - 1] == '\n')
             buffer[length - 1] = '\0';      /* convert newline to null byte */
 
-  if(verifyMIPSInstruction(lineNum, buffer) != 0) {
-    printf("%i ... %i: %i\n", 0, 31, binToDec(buffer, 0, 31));
-  }
+      /* Verify the current line is a valid 32-bit MIPS instruction */
+      if(verifyMIPSInstruction(lineNum, buffer) != 0) {
+        int opCode = opCode(buffer);
+        char format = getFormat(opCode);
+        if(format == 'R') {
+          /* Handle R format instructions */
+          /* Parse the instruction */
+          int functionCode = getFunctionCode(buffer);
+          char functionName = getRFunction(functionCode);
+          if(functionName == "NULL") {
+            printf("There was an unrecognized function code in line %d\n", lineNum);
+          }
+          char * rs = getRegName(getRegNum(buffer, 0));
+          char * rt = getRegName(getRegNum(buffer, 1));
+          char * rd = getRegName(getRegNum(buffer, 2));
+          if(rs == "NULL" || rt == "NULL" || rd == "NULL") {
+            printf("There was an unrecognized register present in line %d\n", lineNum);
+          }
+          int shiftAmount = getShiftAmount(buffer);
+          
+          /* Print the formatted MIPS instruction */
+          if(shiftAmount > 0) {
+            printf("%d. %s %s, %s, %d\n", lineNum, functionName, rd, rt, shiftAmount);
+          }
+          else if(functionCode == 8) {
+            printf("%d. %s %s\n", lineNum, functionName, rd);
+          }
+          else {
+            printf("%d. %s %s, %s, %s\n", lineNum, functionName, rd, rs, rt);
+          }
+        }
+        else if(format == 'I') {
+          /* Handle I format instructions here */
+        }
+        else if(format == 'J') {
+          /* Handle J format instructions here */
+        }
+        else {
+          printf("An unexpected error occured on line: %d\n", lineNum);
+        }
+      }
+      else {
+        printf("Error in line %d: Not a valid 32-bit MIPS instruction.\n", lineNum);
+      }
     }
 
     /* End-of-file encountered; close the file. */
