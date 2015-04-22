@@ -59,7 +59,8 @@ int main(int argc, char *argv[])
       if(verifyMIPSInstruction(lineNum, buffer) != 0) {
         int opCode = getOpCode(buffer);
         char* format = getFormat(opCode);
-        if(format == "R") {
+
+        if(strcmp(format, "R") == 0) {
           /* Handle R format instructions */
           /* Parse the instruction */
           int functionCode = getFunctionCode(buffer);
@@ -86,7 +87,7 @@ int main(int argc, char *argv[])
             printf("%d. %s %s, %s, %s\n", lineNum, functionName, rd, rs, rt);
           }
         }
-        else if(format == "I") {
+        else if(strcmp(format, "I") == 0) {
           /* Handle I format instructions */
           /* Parse the instruction */
           char* iCommand = getICommand(opCode);
@@ -118,10 +119,10 @@ int main(int argc, char *argv[])
              printf("%d. %s %s, %d(%s)\n", lineNum, iCommand, rt, addr, rs);
            }
            else {
-             printf("There was an unexpected error in line %d. The I-Format command could not be recognized.", lineNum);
+             printf("There was an unexpected error in line %d. The I-Format command could not be recognized.\n", lineNum);
            }
         }
-        else if(format == "J") {
+        else if(strcmp(format, "J") == 0) {
           /* Handle J format instructions here */
           /* Parse the instruction */
           char* jCommand = getJCommand(opCode);

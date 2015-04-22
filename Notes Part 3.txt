@@ -41,3 +41,7 @@ Negative Numbers
 			1. First you want to take your binary number that you want to represent as a negative value and calculate the 1's compliment of it. 
 			2. Then you want to add 1 to the 1's compliment of the number in a negative representation
 			3. Now you have the 2's compliment, which is hands down the best compliment.
+	negating a # in 2's comp: -(x)
+		Let x(bar) be the 1s compliment of x
+		Note that x + x(bar) = 111...11 = -1
+	Overflow happens when you add 2 positive numbers together and get a negative number as the result
