@@ -1,0 +1,4 @@
+1. lw $s1, 36136($s1)
+2. sll $zero, $zero, $zero
+3. sw $t5, 44328($t5)
+
