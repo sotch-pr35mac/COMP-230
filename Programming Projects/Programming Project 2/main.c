@@ -86,10 +86,10 @@ int main(int argc, char *argv[])
             printf("%d. %s %s, %s, %s\n", lineNum, functionName, rd, rs, rt);
           }
         }
-        else if(format == 'I') {
+        else if(format == "I") {
           /* Handle I format instructions */
           /* Parse the instruction */
-          char iCommand = getICommand(opCode);
+          char* iCommand = getICommand(opCode);
           if(iCommand == "NULL") {
             printf("There was an unrecognized opcode in line %d\n", lineNum);
           }
@@ -121,10 +121,10 @@ int main(int argc, char *argv[])
              printf("There was an unexpected error in line %d. The I-Format command could not be recognized.", lineNum);
            }
         }
-        else if(format == 'J') {
+        else if(format == "J") {
           /* Handle J format instructions here */
           /* Parse the instruction */
-          char jCommand = getJCommand(opCode);
+          char* jCommand = getJCommand(opCode);
           if(jCommand == "NULL") {
             printf("There was an unrecognized opcode in line %d\n", lineNum);
           }
