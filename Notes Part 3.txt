@@ -62,3 +62,9 @@ Floating Point Numbers
 	64-bit double precision
 		31 is the sign, 30 - 20 is the exponent, 19-0 AND 31-0 is all the significand
 	These can be found in more detail in the IEEE Standard #754
+	
+	Overflow
+		Result is too big for the exponeent .ie the exponent is too large
+	Underflow
+		Neg exponent is too large
+	How do we represent the exponent and the significand
