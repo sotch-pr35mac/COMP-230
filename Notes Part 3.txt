@@ -44,4 +44,21 @@ Negative Numbers
 	negating a # in 2's comp: -(x)
 		Let x(bar) be the 1s compliment of x
 		Note that x + x(bar) = 111...11 = -1
-	Overflow happens when you add 2 positive numbers together and get a negative number as the result
+	Overflow happens when you 
+		add 2 positive numbers together and get a negative number as the result
+		add 2 neg numbers and get a postive number as the result
+		subtract a negative number from a positive number and getting a negative number as the result
+		subtracting a positive number form a negative number and getting a positive number as the result
+	So overflow really means that when you are doing extra addition and subtraction and you get a value that is outside of your range.
+	C always ignores overflow
+
+Floating Point Numbers
+	1467389 = 1.46389 * 10 ^6 (Normalized)
+	1101001 = 1.101001 * 2 ^6
+	Accuracy vs Range
+		-More bits to significand, increase accurace, decrease range
+		-More bits to the exponent, inreacse range, however you then have to decrease accuracy
+	The IEEE Standard says that for a 32-bit word we have a sign bit (bit 31), then we have the exponent bit (bits 30-23), and the significand gets bits 22-0
+	64-bit double precision
+		31 is the sign, 30 - 20 is the exponent, 19-0 AND 31-0 is all the significand
+	These can be found in more detail in the IEEE Standard #754
