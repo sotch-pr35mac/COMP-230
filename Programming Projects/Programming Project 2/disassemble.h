@@ -10,7 +10,7 @@
  * @Pre-Condition <code>char instruction[]</code> is a 'string' (an array of char's) is a valid 32-bit MIPS instruction, where the first 6 bits is the op-code.
  * @Post-Condition: returns the correct decimal representation for the 6-bit opcode of the valid 32-bit MIPS instruction.
 */
-int opCode(char instruction[]);
+int getOpCode(char instruction[]);
 
 /*
  * @Description: <code>getFormat</code> gets the format of the MIPS instruction and returns it as a char

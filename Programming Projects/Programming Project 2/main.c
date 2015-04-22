@@ -57,13 +57,13 @@ int main(int argc, char *argv[])
 
       /* Verify the current line is a valid 32-bit MIPS instruction */
       if(verifyMIPSInstruction(lineNum, buffer) != 0) {
-        int opCode = opCode(buffer);
-        char format = getFormat(opCode);
-        if(format == 'R') {
+        int opCode = getOpCode(buffer);
+        char* format = getFormat(opCode);
+        if(format == "R") {
           /* Handle R format instructions */
           /* Parse the instruction */
           int functionCode = getFunctionCode(buffer);
-          char functionName = getRFunction(functionCode);
+          char* functionName = getRFunction(functionCode);
           if(functionName == "NULL") {
             printf("There was an unrecognized function code in line %d\n", lineNum);
           }
@@ -98,7 +98,7 @@ int main(int argc, char *argv[])
           if(rs == "NULL" || rt == "NULL") {
             printf("There was an unrecognized register in line %d\n", lineNum);
           }
-          int addr = binToDec(instruction, 16, 32);
+          int addr = binToDec(buffer, 16, 32);
 
            /* Print the formatted MIS instruction */
            if(opCode == 4 || opCode == 5) {
@@ -128,7 +128,7 @@ int main(int argc, char *argv[])
           if(jCommand == "NULL") {
             printf("There was an unrecognized opcode in line %d\n", lineNum);
           }
-          int addr = binToDec(insstruction, 6, 32);
+          int addr = binToDec(buffer, 6, 32);
           printf("%d. %s %d\n", lineNum, jCommand, addr*4);
         }
         else {
