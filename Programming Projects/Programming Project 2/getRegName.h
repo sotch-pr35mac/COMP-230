@@ -2,7 +2,7 @@
  * File: getRegName.h
  * Author: Preston Stosur-Bassett
  * Date: 19.4.15
- * Description: TODO: write description
+ * Description: This is the .h file that contains all the function declarations from getRegName.c
 */
 
 /*

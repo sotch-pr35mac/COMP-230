@@ -1,34 +1,16 @@
-/* TODO: change the file internal documentation */
 /*
- * Test Driver to test verifyMIPSInstruction and binToDec.
+ * Main driver for disassembler.
  *
  * This program reads lines from a file.  For each line, the program
  *      calls verifyMIPSInstruction.  If the line contains a valid
- *      MIPS instruction, the program calls binToDec for various
- *      segments of the instruction to test the binToDec function.
- *
- * Input:
- *      The program reads its input from a file passed in as a parameter
- *      on the command line, or reads from the standard input.
- *      To test verifyMIPSInstruction, the file should contain ...
- *
- *              -A 32 bit binary sequence
- *              -A non-32 bit binary sequence, any sequence of characters that the program should be able to handle and error report for.
- *
- * Output:
- *      For each valid line, the program prints a series of decimal
- *      numbers to test binToDec, representing
- *
- *             -A the decimal value for the binary value that was passed
- *
- *      For each invalid line, the program prints an error message to
- *      stderr saying so.  (The program also prints an error message if
- *      it cannot open the file.)
+ *      MIPS instruction, the program parses the instructions into MIPS
  *
  * Author:  Preston Stosur-Bassett
  *        with assistance from: Alyce Brady
  *
  * Creation Date:  3.4.15
+ * Updated On: 19.4.15
+ *    Update Description: Updated to work with as the main function for the disassembler program.
  *
  */
 

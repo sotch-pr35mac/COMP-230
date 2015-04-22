@@ -2,7 +2,7 @@
  *   File:         disassemble.c
  *   Author:       Preston Stosur-Bassett
  *   Date:         17.4.15
- *   Description:  TODO: What does this file do
+ *   Description:  This file handles the main disassembly functions and converts decimal values to near-english equivalents.
 */
 
 #include <stdio.h>
@@ -41,7 +41,9 @@ char* getFormat(int decimalOpCode) {
 }
 
 /*
- * TODO: write the function spec for this function
+ * @Description: <code>getShiftAmount</code> gets the shift amount of the valid 32-bit MIPS instruction and returns it as an integer
+ * @Pre-Condition: <code>char instruction[]</code> is a valid 32-bit MIPS instruction
+ * @Post-Condition: returns the correct integer for R-type instructions that have a shift amount
 */
 int getShiftAmount(char instruction[]) {
   int shiftAmount = binToDec(instruction, 21, 26);
@@ -49,18 +51,23 @@ int getShiftAmount(char instruction[]) {
 }
 
 /*
- * TODO: write the function spec for this function
+ * @Description: <code>getFunctionCode</code> gets the function decimal value for a valid 32-bit MIPS R-type MIPS instruction
+ * @Pre-Condition: <code>char instruction[]</code> is a valid 32-bit MIPS instruction
+ * @Post-Condition: returns the decimal equivalent of the R-Type function code as an integer value
 */
 int getFunctionCode(char instruction[]) {
   int functionCode = binToDec(instruction, 26, 32);
+  return functionCode;
 }
 
 /*
- * TODO: write the function spec for this function
+ * @Description: <code>getRegNum</code> gets the decimal value of the register
+ * @Pre-Condition: <code>char instruction[]<code> is a valid 32-bit MIPS instruction. <code>int regPlacement</code> is the placement register number that should get returned (0 for rs, 1 for rt, 2 for rd)
+ * @Post-Condition: returns the decimal value of the register number as an integer
 */
 int getRegNum(char instruction[], int regPlacement) {
   int regNum = binToDec(instruction, 6 + 5*(regPlacement), 11 + 5*(regPlacement));
-  return regNum
+  return regNum;
 }
 
 /*
