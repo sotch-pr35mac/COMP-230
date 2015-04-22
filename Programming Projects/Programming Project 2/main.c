@@ -92,7 +92,7 @@ int main(int argc, char *argv[])
             printf("There was an unrecognized register present in line %d\n", lineNum);
           }
           int shiftAmount = getShiftAmount(buffer);
-          
+
           /* Print the formatted MIPS instruction */
           if(shiftAmount > 0) {
             printf("%d. %s %s, %s, %d\n", lineNum, functionName, rd, rt, shiftAmount);
@@ -105,10 +105,49 @@ int main(int argc, char *argv[])
           }
         }
         else if(format == 'I') {
-          /* Handle I format instructions here */
+          /* Handle I format instructions */
+          /* Parse the instruction */
+          char iCommand = getICommand(opCode);
+          if(iCommand == "NULL") {
+            printf("There was an unrecognized opcode in line %d\n", lineNum);
+          }
+          char * rs = getRegName(getRegNum(buffer, 0));
+          char * rt = getRegName(getRegNum(buffer, 1));
+          if(rs == "NULL" || rt == "NULL") {
+            printf("There was an unrecognized register in line %d\n", lineNum);
+          }
+          int addr = binToDec(instruction, 16, 32);
+
+           /* Print the formatted MIS instruction */
+           if(opCode == 4 || opCode == 5) {
+             /* Print the formatted BNE BEQ MIPS instruction */
+             printf("%d. %s %s, %s, %d\n", lineNum, iCommand, rs, rt, addr*4);
+           }
+           else if(opCode > 5 && opCode < 14) {
+             /* Print formatted MIPS instruction */
+             printf("%d. %s %s, %s, %d\n", lineNum, iCommand, rs, rt, addr);
+           }
+           else if(opCode > 14 && opCode < 16) {
+             /* Print formatted MIPS instruction */
+             printf("%d. %s %s, %d\n", lineNum, iCommand, rt, addr);
+           }
+           else if(opCode > 16 && opCode <= 44) {
+             /* Print the formatted MIPS instruction */
+             printf("%d. %s %s, %d(%s)\n", lineNum, iCommand, rt, addr, rs);
+           }
+           else {
+             printf("There was an unexpected error in line %d. The I-Format command could not be recognized.", lineNum);
+           }
         }
         else if(format == 'J') {
           /* Handle J format instructions here */
+          /* Parse the instruction */
+          char jCommand = getJCommand(opCode);
+          if(jCommand == "NULL") {
+            printf("There was an unrecognized opcode in line %d\n", lineNum);
+          }
+          int addr = binToDec(insstruction, 6, 32);
+          printf("%d. %s %d\n", lineNum, jCommand, addr*4);
         }
         else {
           printf("An unexpected error occured on line: %d\n", lineNum);
