@@ -99,7 +99,7 @@ int main(int argc, char *argv[])
           if(rs == "NULL" || rt == "NULL") {
             printf("There was an unrecognized register in line %d\n", lineNum);
           }
-          int addr = binToDec(buffer, 16, 32);
+          int addr = binToDec(buffer, 16, 31);
 
            /* Print the formatted MIS instruction */
            if(opCode == 4 || opCode == 5) {
@@ -129,7 +129,7 @@ int main(int argc, char *argv[])
           if(jCommand == "NULL") {
             printf("There was an unrecognized opcode in line %d\n", lineNum);
           }
-          int addr = binToDec(buffer, 6, 32);
+          int addr = binToDec(buffer, 6, 31);
           printf("%d. %s %d\n", lineNum, jCommand, addr*4);
         }
         else {

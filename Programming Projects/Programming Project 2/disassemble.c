@@ -17,7 +17,7 @@
  * @Post-Condition: returns the correct decimal representation for the 6-bit opcode of the valid 32-bit MIPS instruction.
 */
 int getOpCode(char instruction[]) {
-  int decimalOpCode = binToDec(instruction, 0, 6);
+  int decimalOpCode = binToDec(instruction, 0, 5);
   return decimalOpCode;
 }
 
@@ -46,7 +46,7 @@ char* getFormat(int decimalOpCode) {
  * @Post-Condition: returns the correct integer for R-type instructions that have a shift amount
 */
 int getShiftAmount(char instruction[]) {
-  int shiftAmount = binToDec(instruction, 21, 26);
+  int shiftAmount = binToDec(instruction, 21, 25);
   return shiftAmount;
 }
 
@@ -56,7 +56,7 @@ int getShiftAmount(char instruction[]) {
  * @Post-Condition: returns the decimal equivalent of the R-Type function code as an integer value
 */
 int getFunctionCode(char instruction[]) {
-  int functionCode = binToDec(instruction, 26, 32);
+  int functionCode = binToDec(instruction, 26, 31);
   return functionCode;
 }
 

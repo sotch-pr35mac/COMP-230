@@ -41,17 +41,15 @@
 *	@param: int end is an integer value for where to end the binary to decimal conversion
 *	@Post-Condition: decimal is a decimal integer value for the beginning and end index in the string of binary values
 */
-int binToDec(char string[], int begin, int end)
+int binToDec(char instruction[], int begin, int end)
 {
-	int i = 0;
+	int i = begin;
 	int decimal = 0;
-	int beginPrime = begin;
 
-	while(beginPrime < end) {
-		decimal = 2 * decimal + ((string[i] == '1') ? 1 : 0);
+	while(i <= end) {
+		decimal = 2 * decimal + ((instruction[i] == '1') ? 1 : 0);
 
 		i++;
-		beginPrime++;
 	}
 
 	return decimal;
