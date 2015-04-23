@@ -66,7 +66,7 @@ int getFunctionCode(char instruction[]) {
  * @Post-Condition: returns the decimal value of the register number as an integer
 */
 int getRegNum(char instruction[], int regPlacement) {
-  int regNum = binToDec(instruction, 6 + 5*(regPlacement), 11 + 5*(regPlacement));
+  int regNum = binToDec(instruction, 6 + 5*(regPlacement), 10 + 5*(regPlacement));
   return regNum;
 }
 
