@@ -3,25 +3,36 @@ Computer Organization (CS230) Homework 4 | Preston Stosur-Bassett
 1. Calculate teh following sums in hexadecimal and binary. Assume the numbers represent 8-bit unsigned integers. Circle any result that has overflow. Note whether the hex and binary sums represent the same number.
 
 	1a. 
-		Hex: 0x46 + 0x74 = ?
-		Binary: 01000110 + 01110100 = ?
+		Hex: 0x46 + 0x74 = BA
+		Binary: 01000110 + 01110100 = 10111010
+		BA(hex) == 10111010(bin)
 	1b.
-		Hex: 0x46 + 0xE9 = ?
-		Binary: 
+		Hex: 0x46 + 0xE9 = 12F
+		Binary: 01000110 + 11101001 = 100101111 (OVERFLOW)
+		100101111(bin) == 12F(hex)
 	1c. 
-		Hex: 0x87 + 0x74 = ?
-		Binary: 
+		Hex: 0x87 + 0x74 = FB
+		Binary: 10000111 + 01110100 = 11111011
+		11111011(bin) == FB(hex)
 	1d. 
-		Hex: 0x87 + 0xE9 = ?
-		Binary:
+		Hex: 0x87 + 0xE9 = 170
+		Binary: 10000111 + 11101001 = 101110000 (OVERFLOW)
+		101110000(bin) == 170(hex)
 
 2. For the 4 numbers above (0x46, 0x74, 0x87, 0xE9):
 	
 	2a. Look at the binary representations and determine which represent different numbers when considered as 8-bit two's complement signed integers rather than unsigned integers? (How do you recognize them?)
+
+		0xE9 represented in binary could be considered as a negative value in binary, you can tell because of the first bit, 1, which in 2's complement is considered as a 'negative sign'.
 	
 	2b. For each of the numbers whose value is different when considered as unsigned vs. 2's complement, calculate both decimal values.
+		
+		0xE9(hex) == 11101001(usigned binary) == 233(dec)
+		0xE9(hex) == 11101001(signed binary) == -23
 	
 	2c. Which of the calculations above involved numberrs whose values depend on whether they represent unsigned or 2's complement numbers? Would you expect the result of the sums to be different if the numbers were treated as 2's complement?
+
+		I would expect the values to be much different if they were treated as signed 2's complement. All the results from problem 1 can be interpreted as negative values in signed 2's complement binary, and one of the numbers before hand (0xE9) could as well. 
 
 3. For all of the sums above that would be different if calculated as 2's complement signed integers, re-calculate assuming that notation. (You may do this in binary or hexadecimal.) When does overflow occur? Is this the same problem in (1) above? Why or why not?
 
@@ -42,3 +53,4 @@ PART B:
 PART C:
 
 1. What MIPS instruction is represented by the 32-bit number 0x24A60004?
+	addiu $a1, $a2, 4
