@@ -29,26 +29,44 @@ Computer Organization (CS230) Homework 4 | Preston Stosur-Bassett
 		
 		0xE9(hex) == 11101001(usigned binary) == 233(dec)
 		0xE9(hex) == 11101001(signed binary) == -23
+		0x87(hex) == 10000111(unsigned binary) == 135
+		0x87(hex) == 10000111(signed binary) == -121
 	
 	2c. Which of the calculations above involved numberrs whose values depend on whether they represent unsigned or 2's complement numbers? Would you expect the result of the sums to be different if the numbers were treated as 2's complement?
 
-		I would expect the values to be much different if they were treated as signed 2's complement. All the results from problem 1 can be interpreted as negative values in signed 2's complement binary, and one of the numbers before hand (0xE9) could as well. 
+		I would expect the values to be much different if they were treated as signed 2's complement. All the results from problem 1 can be interpreted as negative values in signed 2's complement binary, as well as the operands 0x87 and 0xE9.
 
 3. For all of the sums above that would be different if calculated as 2's complement signed integers, re-calculate assuming that notation. (You may do this in binary or hexadecimal.) When does overflow occur? Is this the same problem in (1) above? Why or why not?
 
+	0x46 + 0xE9 = 00101111(bin) (OVERFLOW)
+	0x87 + 0x74 = 01110100(bin) (OVERFLOW)
+	0x87 + 0xE9 = 11101001(bin) (OVERFLOW)
+
 4. Recalculate 1b using subtraction, treating 0x46 and 0xE9 as 2's complement binary integers. In other words, calculate 0x46 - (-0xE9), in binary. Then do the same calculation in hex. Both answers should match your answer in 1b. 
+
+	01000110 - (11101001) = 100101111
 
 5. What is the decimal value for 0x24A60004 if it represents an unsigned integer?
 
+	0x24A6000(hex) == 614858756(dec)
+
 6. What is the decimal value for 0x24A60004 if it represents a two's complement integer?
+
+	3680108540(dec)
 
 PART B:
 
 1. What is the floating point decimal value for 0x24A60004 if it represnts a 32-bit floating point number?
 
+	7.19 * 10 ^-17
+
 2. What is the binary 32-bit floating point representation for -1609.5?
 
+	11000100110010010011000000000000
+
 3. What is the 64-bit floating point representation for the same number?
+
+	1100000010011001001001100000000000000000000000000000000000000000
 
 PART C:
 
