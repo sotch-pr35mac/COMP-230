@@ -68,3 +68,15 @@ Floating Point Numbers
 	Underflow
 		Neg exponent is too large
 	How do we represent the exponent and the significand
+
+
+Unicode and ASCII
+	Unicode is just ASCII and extending it on, so that means that the first 'x' bits in Unicode are just the ASCII set. However that doesn't have Chinese characters
+	
+	+-----------------------------------------+
+BIN	| 0011 0101 0110 1100 0000 0000 0000 0000 |
+	-------------------------------------------
+MIPS:	| ori $t3, $t4, 0                         |
+	-------------------------------------------
+ASCII	| '\0' '\0' 'l' '\0'                      |
+	+-----------------------------------------+
