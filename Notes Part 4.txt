@@ -1,0 +1,6 @@
+Kalamazoo College CS230 Computer Organization: Notes Part 4
+
+- Register File: Read 2 Registers Simultaneously
+	- Decoder is the opposite of a Mux, it handles input to the registers
+	- The Mux handles output from the registers
+	- 
