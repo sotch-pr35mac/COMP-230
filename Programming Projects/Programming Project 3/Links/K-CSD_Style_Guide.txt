@@ -1,0 +1,3 @@
+Kalamazoo College Computer Science Department Program Style Guide
+
+http://www.cs.kzoo.edu/pgmStyle.html

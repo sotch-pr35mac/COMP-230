@@ -38,10 +38,12 @@ Computer Organization (CS230) Homework 4 | Preston Stosur-Bassett
 
 3. For all of the sums above that would be different if calculated as 2's complement signed integers, re-calculate assuming that notation. (You may do this in binary or hexadecimal.) When does overflow occur? Is this the same problem in (1) above? Why or why not?
 
-	0x46 + 0xE9 = 00101111(bin) (OVERFLOW)
-	0x87 + 0x74 = 01110100(bin) (OVERFLOW)
-	0x87 + 0xE9 = 11101001(bin) (OVERFLOW)
+	0x46 + 0xE9 = 00101111(bin)
+	0x87 + 0x74 = 01110100(bin)
+	0x87 + 0xE9 = 11101001(bin)
 
+	This is different from number 1 above.
+	
 4. Recalculate 1b using subtraction, treating 0x46 and 0xE9 as 2's complement binary integers. In other words, calculate 0x46 - (-0xE9), in binary. Then do the same calculation in hex. Both answers should match your answer in 1b. 
 
 	01000110 - (11101001) = 100101111

@@ -1,0 +1,3 @@
+Kalamazoo College Computer Science Department Documentation Standards
+
+http://www.cs.kzoo.edu/docStds.html
