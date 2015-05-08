@@ -4,4 +4,18 @@ Kalamazoo College CS230 Computer Organization: Notes Part 4
 	- Decoder is the opposite of a Mux, it handles input to the registers
 	- The Mux handles output from the registers
 
-- 
+- Memory
+	- how do you keep the data from changing?
+		- a set bit and a get bit
+		- you need to use feedback loops
+
+- Single Cycle CPU
+	- Control Line Names
+		A RegDst
+		B Jump
+		C Branch
+		D MemWrite
+		E MemToReg
+		F ALUOp
+		G MemRead
+	- Each step takes a certain amount of time
