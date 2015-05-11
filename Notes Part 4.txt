@@ -19,3 +19,94 @@ Kalamazoo College CS230 Computer Organization: Notes Part 4
 		F ALUOp
 		G MemRead
 	- Each step takes a certain amount of time
+
+- Measuring Time
+	- Two versions
+		- Repsonse time - how fast does a particular task get done?
+		- Throughput - the amount of x that can go through the CPU
+- Measuring Response Time
+	- Elapsed time vs CPU time
+		- Elapsed time = Wall-Clock Time
+		- CPU Time = amount of time the computer is working on our task
+	- We will lookat CPU Time
+		- Why?
+
+- Measuring CPU Time
+	- User CPU time vs. System CPU time
+		- User CPU time: amount of time spent executing the user's task
+		- System CPU time: amount of time spent executing tasks related to the user's task
+			- This is hard to measure, and depends on operating system etc.
+	- We'll focus on User CPU time
+
+- Finding User CPU Time
+	- Experimentation:
+		- UNIX time utility
+	- Calculations:
+		- Several formulas for calculating CPU Performance
+	- Note: Performance is inserve of execution time -- as execution time decreases, performance increases / improves
+
+- Clock Rate
+	- All computers have a clock running at a constant rate
+	- Clock period is the length of a single clock tick (cycle)
+	- Clock rate is inverse of clock period
+		- Clock period = .5 nanoseconds
+		- Clock rate = 2GHz
+
+- Clock Rate and Performance
+	- measuring Performance using the clock
+		- execution time = number of cycles for the program * time for one clock cycle
+
+- How many cycles does the program take
+	- How do we know how many cycles a program is going to need?
+		number of cycles for program = number of instructions * cycles per instruction
+	- number of instructinos = instruction count (IC)
+	- Cycles for one instruction = cycles per instruction (CPI)
+	- So, clock cycles = IC * CPI
+	- However, lets think about what happens when instructions take a different amount of cycles to execute
+
+- New Formula
+	- Put his in our formula
+		- Execution time = ic * cpi * clock period
+		OR
+		- Execution time = (IC * CPI) / Clock Rate
+	- This is the basic performance equation
+
+- How do the units work out?
+	- IC = instructions in program
+	- CPI = cycles per instruction
+	- Clock period = seconds per cycle
+	- Execution Time = Seconds/program
+
+- Finding CPI
+	- Use a weighted average
+	- Example
+		- 25% floating point operations 4 cycles
+		- 75% integer operations 1 cycle
+		- What is the CPI?
+			- 4 * 25% + 1 * 75% = 1.75
+
+- Amdahl's Law
+	- The performance enchancement possible with a given improvement is limited by the amount that the impoved feature is used
+	- Floating point operations twice as fast, but, imporved machine is only 1.4 times as fast.
+	- Moral, MAKE THE COMMON CASE
+
+- So now what?
+	- Time to compare two machines
+	- Need to choose a program or set of programs to test both machines with
+	- Which programs to choose?
+	- Set of programs is called a benchmark
+		- The book talks about the SPEC benchmark
+
+- Choosing Benchmarking programs
+	- standarized
+		- allow comparison among many machines
+	- small vs large	
+		- small
+			- Easier to run many times
+			- easier to "cheat"
+		- large	
+			- more realistic
+			- harder to standarize
+
+- Energy Efficiency
+	- Performance / Power Consumption
