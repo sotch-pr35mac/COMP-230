@@ -71,6 +71,9 @@ int main(int argc, char *argv[]) {
     operation = superTokenBegin;
 
     /* Get operation format */
+    char * opCode = getOpCode(operation);
+    int format = getFormat(opCode);
+
     
   }
 }
