@@ -320,7 +320,7 @@ char * parseReg(char * regName) {
 /*
 * TODO: write the function spec for this function
 */
-void parseR(char * instruction, char * opCode, char * operation, char * superTokenBegin, char * superTokenEnd, lineNum) {
+void parseR(char * instruction, char * opCode, char * operation, char ** superTokenBegin, char ** superTokenEnd, lineNum) {
   static int EQUAL = 0;
   char * functCode = getFunctCode(operation);
 
@@ -334,6 +334,7 @@ void parseR(char * instruction, char * opCode, char * operation, char * superTok
 
     /* Print the statement to the console. */
     printf("%i. %s%s000000000000000%s", lineNum, opCode, rd, functCode);
+    return;
   }
   else if(strcmp(functCode, "000000") == EQUAL || strcmp(functCode, "000010") == EQUAL) {
     /* Handle shirt instructions here */
@@ -353,6 +354,7 @@ void parseR(char * instruction, char * opCode, char * operation, char * superTok
 
     /* Print the statement to the console. */
     printf("%i. %s00000%s%s%s%s\n", lineNum, opCode, rd, rs, shift, functCode);
+    return;
   }
   else {
     /* Handle standard R format instructions here */
@@ -371,19 +373,20 @@ void parseR(char * instruction, char * opCode, char * operation, char * superTok
 
     /* Print the statement to the console. */
     printf("%i, %s%s%s%s00000%s\n", lineNum, opCode, rt, rd, rs, functCode);
+    return;
   }
 }
 
 /*
 * TODO: write the function spec for this function
 */
-void parseI(char * instruction, char * opCode) {
+void parseI(char * instruction, char * opCode, char ** superTokenBegin, char ** superTokenEnd, int lineNum) {
 
 }
 
 /*
 * TODO: write the function spec for this function
 */
-void parseJ(char * instruction, char * opCode) {
+void parseJ(char * instruction, char * opCode, char ** superTokenBegin, char ** superTokenEnd, int lineNum) {
 
 }

@@ -77,13 +77,13 @@ int main(int argc, char *argv[]) {
 
     /* Parse the instruction */
     if(format == 0) {
-      parseR(inst, opCode, operation, superTokenBegin, superTokenEnd, lineNum);
+      parseR(inst, opCode, operation, &superTokenBegin, &superTokenEnd, lineNum);
     }
     else if(format == 1) {
-      parseI(inst, opCode);
+      parseI(inst, opCode, &superTokenBegin, &superTokenEnd, lineNum);
     }
     else if(format == 2) {
-      parseJ(inst, opCode);
+      parseJ(inst, opCode, &superTokenBegin, &superTokenEnd, lineNum);
     }
 
     lineNum++;
