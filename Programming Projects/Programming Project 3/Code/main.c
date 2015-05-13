@@ -80,10 +80,10 @@ int main(int argc, char *argv[]) {
       parseR(inst, opCode, operation, &superTokenBegin, &superTokenEnd, lineNum);
     }
     else if(format == 1) {
-      parseI(inst, opCode, &superTokenBegin, &superTokenEnd, lineNum);
+      parseI(inst, opCode, &superTokenBegin, &superTokenEnd, lineNum, tableOfLabels);
     }
     else if(format == 2) {
-      parseJ(inst, opCode, &superTokenBegin, &superTokenEnd, lineNum);
+      parseJ(inst, opCode, &superTokenBegin, &superTokenEnd, lineNum, tableOfLabels);
     }
 
     lineNum++;

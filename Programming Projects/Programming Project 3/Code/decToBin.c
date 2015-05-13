@@ -12,10 +12,9 @@
 #include "decToBin.h"
 
 /*
-*   TODO: write the function spec for this program
+* TODO: write the function spec for this function
 */
-char * decToBin(char * charDec, int len) {
-  int dec = atoi(charDec);
+char * decToBin(int dec, int len) {
   char * bin;
 
   int i = 0;
@@ -32,4 +31,12 @@ char * decToBin(char * charDec, int len) {
   }
 
   return bin;
+}
+
+/*
+*   TODO: write the function spec for this program
+*/
+char * decToBin(char * charDec, int len) {
+  int dec = atoi(charDec);
+  return decToBin(dec, len);
 }

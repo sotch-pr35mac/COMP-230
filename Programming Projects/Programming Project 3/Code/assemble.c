@@ -380,7 +380,7 @@ void parseR(char * instruction, char * opCode, char * operation, char ** superTo
 /*
 * TODO: write the function spec for this function
 */
-void parseI(char * instruction, char * opCode, char ** superTokenBegin, char ** superTokenEnd, int lineNum) {
+void parseI(char * instruction, char * opCode, char ** superTokenBegin, char ** superTokenEnd, int lineNum, LabelTable * table) {
   static int EQUAL = 0;
 
   if(strcmp(opCode, "100011") == EQUAL || strcmp(opCode, "101011") == EQUAL) {
@@ -420,6 +420,7 @@ void parseI(char * instruction, char * opCode, char ** superTokenBegin, char ** 
   else {
     /* Handle the standard I type instructions here */
     /* Get the binary for the registers */
+    /* TODO: Get this to work with LabelTables!!! */
     superTokenBegin = superTokenEnd + 1;
     getToken(&superTokenBegin, &superTokenEnd);
     char * rs = parseReg(superTokenBegin);
@@ -442,6 +443,22 @@ void parseI(char * instruction, char * opCode, char ** superTokenBegin, char ** 
 /*
 * TODO: write the function spec for this function
 */
-void parseJ(char * instruction, char * opCode, char ** superTokenBegin, char ** superTokenEnd, int lineNum) {
+void parseJ(char * instruction, char * opCode, char ** superTokenBegin, char ** superTokenEnd, int lineNum, LabelTable * table) {
+  /* Handle J type instructions here */
+  /* Get the value of the address */
+  superTokenBegin = superTokenEnd + 1;
+  getToken(&superTokenBegin, &superTokenEnd);
 
+  int decAddress = findLabel(table, superTokenBegin);
+
+  if(decAddress == -1) {
+    fprintf(stderr, "Error: The address for the label %s was not found. Setting address equal to 0...\n". superTokenBegin);
+    decAddress = 0;
+  }
+
+  char * addr = decToBin(decAddress, 26);
+
+  /* Print the statement to the console. */
+  printf("%i. %s%s\n", lineNum, opCode, addr);
+  return;
 }
