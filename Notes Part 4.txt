@@ -127,3 +127,12 @@ Kalamazoo College CS230 Computer Organization: Notes Part 4
 
 - Software: no-op
 - Hardware: stall
+
+- Branch Prediction
+	- Longer pipelines can't readily determine branch outcome early
+		- Stall penalty becomes unacceptable
+	- Predict outcome of branch
+		- ONly stall if prediction is wrong
+	- In MIPS Pipeline
+		- Can predict branches not taken
+		- Getch instruction only after the delay
