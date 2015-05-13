@@ -417,6 +417,34 @@ void parseI(char * instruction, char * opCode, char ** superTokenBegin, char ** 
     printf("%i. %s00000%s%s\n", lineNum, opCode, rs, imm);
     return;
   }
+  else if(strcmp(opCode, "000100") == EQUAL || strcmp(opCode, "000101") == EQUAL) {
+    /* Handle the bne and beq instructions here */
+    /* Get the binary for the registers */
+    superTokenBegin = superTokenEnd + 1;
+    getToken(&superTokenBegin, &superTokenEnd);
+    char * rs = parseReg(superTokenBegin);
+
+    superTokenBegin = superTokenEnd + 1;
+    getToken(&superTokenBegin, &superTokenEnd);
+    char * rt = parseReg(superTokenBegin);
+
+    /* Get the binary address of the label */
+    superTokenBegin = superTokenEnd + 1;
+    getToken(&superTokenBegin, &superTokenEnd);
+
+    int decAddress = findLabel(table, superTokenBegin);
+
+    if(decAddress == -1) {
+      fprintf(stderr, "Error: Could not find the address for the label %s. Setting the label's address to 0....\n", superTokenBegin);
+      decAddress = 0;
+    }
+
+    char * addr = decToBin(decAddress, 16);
+
+    /* Print the statement to the console */
+    printf("%i. %s%s%s%s\n", lineNum, opCode, rt, rs, addr);
+    return;
+  }
   else {
     /* Handle the standard I type instructions here */
     /* Get the binary for the registers */
