@@ -110,3 +110,20 @@ Kalamazoo College CS230 Computer Organization: Notes Part 4
 
 - Energy Efficiency
 	- Performance / Power Consumption
+
+- Performance issues
+	- Longest delay determines the clock speed
+	- RISK has simple instructions, to be able to make the common case fast
+	- So what we have is pipline.
+
+- Pipelined Laundy: overlapping execution
+	- Parallelism improves performance
+		- We don't have parallelism for the purpose of this part of notes
+	- So each laundy load takes the same amount of time, and we have four loads of laundry to do, we have to wait for one load to be completely done before we start the next, we put one in the dryer and then put one in the washer. 
+		- This idea here will speed up the throughput, and we are not speeding up the clock, we are just making it so that more instructions get through the CPU in a less amount of time, speeding up the throughput. 
+
+- MIPS Pipeline
+	- Gives Ttages, one step per stage
+
+- Software: no-op
+- Hardware: stall
