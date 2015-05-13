@@ -381,7 +381,62 @@ void parseR(char * instruction, char * opCode, char * operation, char ** superTo
 * TODO: write the function spec for this function
 */
 void parseI(char * instruction, char * opCode, char ** superTokenBegin, char ** superTokenEnd, int lineNum) {
+  static int EQUAL = 0;
 
+  if(strcmp(opCode, "100011") == EQUAL || strcmp(opCode, "101011") == EQUAL) {
+    /* Handle lw and sw instructions here */
+    /* Get the binary for the registers and offset immediates */
+    superTokenBegin = superTokenEnd + 1;
+    getToken(&superTokenBegin, &superTokenEnd);
+    char * rs = parseReg(superTokenBegin);
+
+    superTokenBegin = superTokenEnd + 1;
+    getToken(&superTokenBegin, &superTokenEnd);
+    char * offset = decToBin(superTokenBegin, 16);
+
+    superTokenBegin = superTokenEnd + 1;
+    getToken(&superTokenBegin, &superTokenEnd);
+    char * rd = parseReg(superTokenBegin);
+
+    /* Print the statement to the console */
+    printf("%i. %s%s%s%s\n", lineNum, opCode, rd, rs, offset);
+  }
+  else if(strcmp(opCode, "001111") == EQUAL) {
+    /* Handle lui instructions here */
+    /* Get the binary for the registers */
+    superTokenBegin = superTokenEnd + 1;
+    getToken(&superTokenBegin, &superTokenEnd);
+    char * rs = parseReg(superTokenBegin);
+
+    /* Get the immediate value in binary */
+    superTokenBegin = superTokenEnd + 1;
+    getToken(&superTokenBegin, &superTokenEnd);
+    char * imm = decToBin(superTokenBegin, 16);
+
+    /* Print the statement out to the console. */
+    printf("%i. %s00000%s%s\n", lineNum, opCode, rs, imm);
+    return;
+  }
+  else {
+    /* Handle the standard I type instructions here */
+    /* Get the binary for the registers */
+    superTokenBegin = superTokenEnd + 1;
+    getToken(&superTokenBegin, &superTokenEnd);
+    char * rs = parseReg(superTokenBegin);
+
+    superTokenBegin = superTokenEnd + 1;
+    getToken(&superTokenBegin, &superTokenEnd);
+    char * rd = parseReg(superTokenBegin);
+
+    /* Get the immediate value in binary */
+    superTokenBegin = superTokenEnd + 1;
+    getToken(&superTokenBegin, &superTokenEnd);
+    char * imm = decToBin(superTokenBegin, 16);
+
+    /* Print the statement to the console */
+    printf("%i. %s%s%s%s\n", lineNum, opCode, rd, rt, imm);
+    return;
+  }
 }
 
 /*
