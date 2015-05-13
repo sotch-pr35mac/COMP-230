@@ -44,6 +44,7 @@ int main(int argc, char *argv[]) {
   int PC = 0; /* Start the program counter at 0. */
   char inst[BUFSIZ]; /* holds the instruction */
   char* operation;
+  int lineNum = 0;
 
   /* create a small table of labels to start off */
   if((fptr = fopen(argv[1], "r")) == NULL) {
@@ -74,6 +75,17 @@ int main(int argc, char *argv[]) {
     char * opCode = getOpCode(operation);
     int format = getFormat(opCode);
 
-    
+    /* Parse the instruction */
+    if(format == 0) {
+      parseR(inst, opCode, operation, superTokenBegin, superTokenEnd, lineNum);
+    }
+    else if(format == 1) {
+      parseI(inst, opCode);
+    }
+    else if(format == 2) {
+      parseJ(inst, opCode);
+    }
+
+    lineNum++;
   }
 }
