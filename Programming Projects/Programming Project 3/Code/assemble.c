@@ -356,6 +356,21 @@ void parseR(char * instruction, char * opCode, char * operation, char * superTok
   }
   else {
     /* Handle standard R format instructions here */
+    /* Get the binary for the registers */
+    superTokenBegin = superTokenEnd + 1;
+    getToken(&superTokenBegin, &superTokenEnd);
+    char * rs = parseReg(superTokenBegin);
+
+    superTokenBegin = superTokenEnd + 1;
+    getToken(&superTokenBegin, &superTokenEnd);
+    char * rt = parseReg(superTokenBegin);
+
+    superTokenBegin = superTokenEnd + 1;
+    getToken(&superTokenBegin, &superTokenEnd);
+    char * rd = parseReg(superTokenBegin);
+
+    /* Print the statement to the console. */
+    printf("%i, %s%s%s%s00000%s\n", lineNum, opCode, rt, rd, rs, functCode);
   }
 }
 
