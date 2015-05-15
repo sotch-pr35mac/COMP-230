@@ -2,7 +2,8 @@
 *  File: main.c
 *  Author: Preston Stosur-Bassett
 *  Date: 13.5.15
-*  Description: TODO: Write description
+*  Description: This is the main driver function that will handle input from the user and parse it into binary.
+*  Usage: TODO: write this
 */
 
 #include <stdio.h>
@@ -77,12 +78,15 @@ int main(int argc, char *argv[]) {
 
     /* Parse the instruction */
     if(format == 0) {
+      /* Handle R format instructions */
       parseR(inst, opCode, operation, &superTokenBegin, &superTokenEnd, lineNum);
     }
     else if(format == 1) {
+      /* Handle I type instructions */
       parseI(inst, opCode, &superTokenBegin, &superTokenEnd, lineNum, tableOfLabels);
     }
     else if(format == 2) {
+      /* Handle J type instructions */
       parseJ(inst, opCode, &superTokenBegin, &superTokenEnd, lineNum, tableOfLabels);
     }
 

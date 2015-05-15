@@ -12,7 +12,12 @@
 #include "decToBin.h"
 
 /*
-* TODO: write the function spec for this function
+* Description: TODO: write the description for this function
+* Pre-Condition: TODO: write the precondition for this function
+* Post-Condition: TODO: write the postconditions for this function
+* @param TODO: add the parameters for this function
+* @param TODO: add the parameters for this function
+* @return TODO: add the return for this function
 */
 char * decToBin(int dec, int len) {
   char * bin;
@@ -34,7 +39,12 @@ char * decToBin(int dec, int len) {
 }
 
 /*
-*   TODO: write the function spec for this program
+*   Description: TODO: write the description for this function
+*   Pre-Condition: TODO: write the precondition for this function
+*   Post-Condition: TODO: write the postcondition for this function
+*   @param TODO: add the parameters for this function
+*   @param TODO: add the parameters for this function
+*   @return TODO: add the return for this function
 */
 char * decToBin(char * charDec, int len) {
   int dec = atoi(charDec);

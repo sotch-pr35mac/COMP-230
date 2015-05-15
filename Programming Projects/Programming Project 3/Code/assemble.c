@@ -2,7 +2,7 @@
 *  File: assemble.c
 *  Author: Preston Stosur-Bassett
 *  Date: 13.5.15
-*  Description: TODO: Write description
+*  Description: This is the main assembly file, that handles the pass 2 functions (including parsing the assembly code into binary)
 *  Usage: TODO: write the usage documentation
 */
 
@@ -14,7 +14,11 @@
 #include "decToBin.h"
 
 /*
-*  TODO: write the function spec for this function
+*  Description: TODO: write the description for this function
+*  Pre-Condition: TODO: write the precondition for this function
+*  Post-Condition: TODO: write the post-condition for this function
+*  @param TODO: add the parameters for this function
+*  @return TODO: add the return for this function
 */
 char * getOpCode(char * operation) {
     static int EQUAL = 0;
@@ -97,7 +101,11 @@ char * getOpCode(char * operation) {
 }
 
 /*
-* TODO: write the function spec for this function
+* Description: TODO: write the description for this function
+* Pre-Condition: TODO: write the pre-condition for this function
+* Post-Condition: TODO: write the post-condition for this function
+* @param TODO: add the parameters for this function
+* @return TODO: add the paramets for this function
 */
 int getFormat(char * opCode) {
   static int EQUAL = 0;
@@ -161,7 +169,11 @@ int getFormat(char * opCode) {
 
 
 /*
-* TODO: write the function spec for this function
+* Description: TODO: write the description for this function
+* Pre-Condition: TODO: write the preconditions for this function
+* Post-Condition: TODO: write the postconditions for this function
+* @param TODO: add the parameters for this function
+* @return TODO: add the return for this function
 */
 char * getFunctCode(char * operation) {
   static int EQUAL = 0;
@@ -220,7 +232,11 @@ char * getFunctCode(char * operation) {
 }
 
 /*
-* TODO: write the function spec for this function
+* Description: TODO: write the description for this function
+* Pre-Condition: TODO: write the precondition for this function
+* Post-Condition: TODO: write the post-condition for this function
+* @param TODO: add the parameters for this function
+* @return TODO: add the return for this function
 */
 char * parseReg(char * regName) {
   static int EQUAL = 0;
@@ -318,9 +334,18 @@ char * parseReg(char * regName) {
 }
 
 /*
-* TODO: write the function spec for this function
+* Description: TODO: write the description for this function
+* Pre-Condition: TODO: write the preconditions for this function
+* Post-Condition: TODO: write the post-conditions for this function
+* @param TODO: add the parameters for this function
+* @param TODO: add the parameters for this function
+* @param TODO: add the parameters for this function
+* @param TODO: add the parameters for this function
+* @param TODO: add the parameters for this function
+* @param TODO: add the parameters for this function
+* @return TODO: add the return for this function
 */
-void parseR(char * instruction, char * opCode, char * operation, char ** superTokenBegin, char ** superTokenEnd, lineNum) {
+void parseR(char * instruction, char * opCode, char * operation, char ** superTokenBegin, char ** superTokenEnd, int lineNum) {
   static int EQUAL = 0;
   char * functCode = getFunctCode(operation);
 
@@ -378,7 +403,16 @@ void parseR(char * instruction, char * opCode, char * operation, char ** superTo
 }
 
 /*
-* TODO: write the function spec for this function
+* Description: TODO: write the description for this function
+* Pre-Condition: TODO: write the preconditions for this functino
+* Post-Conditions: TODO: write the post-conditions for this function
+* @param TODO: add the parameters for this function
+* @param TODO: add the parameters for this function
+* @param TODO: add the parameters for this function
+* @param TODO: add the parameters for this function
+* @param TODO: add the parameters for this function
+* @param TODO: add the parameters for this function
+* @return TODO: add the return for this function
 */
 void parseI(char * instruction, char * opCode, char ** superTokenBegin, char ** superTokenEnd, int lineNum, LabelTable * table) {
   static int EQUAL = 0;
@@ -469,7 +503,16 @@ void parseI(char * instruction, char * opCode, char ** superTokenBegin, char ** 
 }
 
 /*
-* TODO: write the function spec for this function
+* Description: TODO: write the description for this function
+* Pre-Condition: TODO: write the preconditions for this function
+* Post-Condition: TODO: write the postconditions for this function
+* @param TODO: add the parameters for this function
+* @param TODO: add the parameters for this function
+* @param TODO: add the parameters for this function
+* @param TODO: add the parameters for this function
+* @param TODO: add the parameters for this function
+* @param TODO: add the parameters for this function
+* @return TODO: add the return for this function
 */
 void parseJ(char * instruction, char * opCode, char ** superTokenBegin, char ** superTokenEnd, int lineNum, LabelTable * table) {
   /* Handle J type instructions here */
