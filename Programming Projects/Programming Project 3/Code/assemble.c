@@ -415,7 +415,7 @@ void parseR(char * instruction, char * opCode, char * operation, char ** superTo
 * @param TODO: <code>int lineNum</code> is a NON-NULL well-defined integer value that corresponds with the line number of the current instruction
 * @param TODO: <code>LabelTable * table</code> is a LabelTable that is NON-NULL, well-defined and contains all the
 */
-void parseI(char * instruction, char * opCode, char ** superTokenBegin, char ** superTokenEnd, int lineNum, LabelTable * table) {
+void parseI(char * instruction, char * opCode, char ** superTokenBegin, char ** superTokenEnd, int lineNum, LabelTable table) {
   static int EQUAL = 0;
 
   if(strcmp(opCode, "100011") == EQUAL || strcmp(opCode, "101011") == EQUAL) {
@@ -523,7 +523,7 @@ void parseI(char * instruction, char * opCode, char ** superTokenBegin, char ** 
 * @param <code>int lineNum</code> is a NON-NULL well-defined integer value that corresponds to the current line number of assembly code.
 * @param <code>LabelTable * table</code> is a LabelTable that is NON-NULL, well-defined and contains all the labels for the current assembly code file (created in pass1)
 */
-void parseJ(char * instruction, char * opCode, char ** superTokenBegin, char ** superTokenEnd, int lineNum, LabelTable * table) {
+void parseJ(char * instruction, char * opCode, char ** superTokenBegin, char ** superTokenEnd, int lineNum, LabelTable table) {
   /* Handle J type instructions here */
   /* Get the value of the address */
   superTokenBegin = superTokenEnd + 1;
