@@ -1,0 +1,20 @@
+Pipelining Homework (Kalamazoo College Computer Science Computer Organization COMP-230)
+Preston Stosur-Bassett
+
+4.3.1
+	What is the clock cycle time with and without this impovement?
+
+4.3.2
+	What is the speedup achieved by adding this impovement?
+
+4.3.3
+	Compre the cost/performance ratio with and without this improvement.
+
+4.8.1
+	What is the clock cycle time in a pipelined and non-pipelined processor?
+
+4.8.2
+	What is the total latency of an LW instruction in a pipelined and non-pipelined processor?
+
+4.8.3
+	If we can split one stage of the pipelined datapath into two new stages, each with half the latency of the original stage, which stage would you split and what is the new clock cycle time of the processor?
