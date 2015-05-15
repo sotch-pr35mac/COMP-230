@@ -471,7 +471,7 @@ void parseI(char * instruction, char * opCode, char ** superTokenBegin, char ** 
     superTokenBegin = superTokenEnd + 1;
     getToken(&superTokenBegin, &superTokenEnd);
 
-    int decAddress = findLabel(table, (char *)superTokenBegin);
+    int decAddress = findLabel(&table, (char *)superTokenBegin);
 
     if(decAddress == -1) {
       char * superTokenChar = (char *) superTokenBegin;
@@ -529,7 +529,7 @@ void parseJ(char * instruction, char * opCode, char ** superTokenBegin, char ** 
   superTokenBegin = superTokenEnd + 1;
   getToken(&superTokenBegin, &superTokenEnd);
 
-  int decAddress = findLabel(table, (char *)superTokenBegin);
+  int decAddress = findLabel(&table, (char *)superTokenBegin);
 
   if(decAddress == -1) {
     char * superTokenChar = (char *) superTokenBegin;

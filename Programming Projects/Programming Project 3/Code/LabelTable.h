@@ -13,6 +13,8 @@
  *
 */
 
+/* START: DEFINE LABEL_H */
+
 #ifndef LABEL_H
 #define LABEL_H
 
@@ -51,8 +53,8 @@ int tableResize (LabelTable * table, int newSize);
          */
 
 int addLabel    (LabelTable * table, char * labelName, int memLoc);
-        /* Postcondition: if label was already in table, the table is 
-         *      unchanged; otherwise a new entry has been added to the 
+        /* Postcondition: if label was already in table, the table is
+         *      unchanged; otherwise a new entry has been added to the
          *      table with the specified label name and instruction address
          *      (memory location) and the table has been resized if necessary.
          * Returns 1 if no fatal errors occurred; 0 if memory allocation error
@@ -70,3 +72,5 @@ void printLabels (LabelTable * table);
          */
 
 #endif
+
+/* END: DEFINE LABEL_H */

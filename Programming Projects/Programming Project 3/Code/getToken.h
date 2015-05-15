@@ -88,9 +88,13 @@
  *
  */
 
+/* START: DEFINE _GETTOKEN_H */
+
 #ifndef _GETTOKEN_H
 #define _GETTOKEN_H
 
 void getToken (char ** tokBegin, char ** tokEnd);
 
 #endif
+
+/* END: DEFINE _GETTOKEN_H */
