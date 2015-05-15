@@ -5,6 +5,8 @@
 *   Description: TODO: write thisf
 */
 
+#include <math.h>
+
 /*
 *  TODO: write the function spec for this function
 */

@@ -56,7 +56,7 @@ int main(int argc, char *argv[]) {
   for(PC = 0; fgets(inst, BUFSIZ, fptr); PC += 4) {
     /* Remove the comments */
     if(*inst == '#') continue;
-    (void) strok (inst, '#');
+    (void) strtok (inst, (char* )'#');
 
     /* point the token to the first non-white space character. */
     superTokenBegin = inst;
