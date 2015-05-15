@@ -20,9 +20,7 @@
 * @param TODO: add the parameters for this function
 * @return TODO: add the return for this function
 */
-char * decToBinInt(int dec, int len) {
-  char * bin[15];
-  bin[0] = '\0';
+void decToBinInt(int dec, int len, char * bin[]) {
   int k = 0;
 
   int i = 0;
@@ -37,8 +35,6 @@ char * decToBinInt(int dec, int len) {
 
     i++;
   }
-
-  return (char*) bin;
 }
 
 /*
@@ -49,7 +45,6 @@ char * decToBinInt(int dec, int len) {
 *   @param TODO: add the parameters for this function
 *   @return TODO: add the return for this function
 */
-char * decToBin(char ** charDec, int len) {
-  int dec = (int) charDec - '0';
-  return decToBinInt(dec, len);
+void decToBin(char ** charDec, int len, char * bin[]) {
+  int dec = atoi(*charDec);
 }

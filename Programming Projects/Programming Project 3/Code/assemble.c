@@ -13,6 +13,7 @@
 #include "decToBin.h"
 #include "assemble.h"
 
+
 /*
 *  Description: getOpCode takes the MIPS operation name, and returns the corresponding operation code
 *  Pre-Condition: TODO: write the precondition for this function
@@ -374,10 +375,12 @@ void parseR(char * instruction, char * opCode, char * operation, char ** superTo
     /* Convert the decimal value to binary */
     superTokenBegin = superTokenEnd + 1;
     getToken(&superTokenBegin, &superTokenEnd);
-    char * shift = decToBin(superTokenBegin, 5);
+    char * shift[15];
+    shift[0] = '\0';
+    decToBin(superTokenBegin, 5, shift);
 
     /* Print the statement to the console. */
-    printf("%i. %s00000%s%s%s%s\n", lineNum, opCode, rd, rs, shift, functCode);
+    printf("%i. %s00000%s%s%s%s\n", lineNum, opCode, rd, rs, *shift, functCode);
     return;
   }
   else {
@@ -424,14 +427,16 @@ void parseI(char * instruction, char * opCode, char ** superTokenBegin, char ** 
 
     superTokenBegin = superTokenEnd + 1;
     getToken(&superTokenBegin, &superTokenEnd);
-    char * offset = decToBin(superTokenBegin, 16);
+    char * offset[15];
+    offset[0] = '\0';
+    decToBin(superTokenBegin, 16, offset);
 
     superTokenBegin = superTokenEnd + 1;
     getToken(&superTokenBegin, &superTokenEnd);
     char * rd = parseReg(superTokenBegin);
 
     /* Print the statement to the console */
-    printf("%i. %s%s%s%s\n", lineNum, opCode, rd, rs, offset);
+    printf("%i. %s%s%s%s\n", lineNum, opCode, rd, rs, *offset);
   }
   else if(strcmp(opCode, "001111") == EQUAL) {
     /* Handle lui instructions here */
@@ -443,10 +448,12 @@ void parseI(char * instruction, char * opCode, char ** superTokenBegin, char ** 
     /* Get the immediate value in binary */
     superTokenBegin = superTokenEnd + 1;
     getToken(&superTokenBegin, &superTokenEnd);
-    char * imm = decToBin(superTokenBegin, 16);
+    char * imm[15];
+    imm[0] = '\0';
+    decToBin(superTokenBegin, 16, imm);
 
     /* Print the statement out to the console. */
-    printf("%i. %s00000%s%s\n", lineNum, opCode, rs, imm);
+    printf("%i. %s00000%s%s\n", lineNum, opCode, rs, *imm);
     return;
   }
   else if(strcmp(opCode, "000100") == EQUAL || strcmp(opCode, "000101") == EQUAL) {
@@ -472,10 +479,12 @@ void parseI(char * instruction, char * opCode, char ** superTokenBegin, char ** 
       decAddress = 0;
     }
 
-    char * addr = decToBinInt(decAddress, 16);
+    char * addr[15];
+    addr[0] = '\0';
+    decToBinInt(decAddress, 16, addr);
 
     /* Print the statement to the console */
-    printf("%i. %s%s%s%s\n", lineNum, opCode, rt, rs, addr);
+    printf("%i. %s%s%s%s\n", lineNum, opCode, rt, rs, *addr);
     return;
   }
   else {
@@ -493,10 +502,12 @@ void parseI(char * instruction, char * opCode, char ** superTokenBegin, char ** 
     /* Get the immediate value in binary */
     superTokenBegin = superTokenEnd + 1;
     getToken(&superTokenBegin, &superTokenEnd);
-    char * imm = decToBin(superTokenBegin, 16);
+    char * imm[15];
+    imm[0] = '\0';
+    decToBin(superTokenBegin, 16, imm);
 
     /* Print the statement to the console */
-    printf("%i. %s%s%s%s\n", lineNum, opCode, rd, rs, imm);
+    printf("%i. %s%s%s%s\n", lineNum, opCode, rd, rs, *imm);
     return;
   }
 }
@@ -526,9 +537,11 @@ void parseJ(char * instruction, char * opCode, char ** superTokenBegin, char ** 
     decAddress = 0;
   }
 
-  char * addr = decToBinInt(decAddress, 26);
+  char * addr[15];
+  addr[0] = '\0';
+  decToBinInt(decAddress, 26, addr);
 
   /* Print the statement to the console. */
-  printf("%i. %s%s\n", lineNum, opCode, addr);
+  printf("%i. %s%s\n", lineNum, opCode, *addr);
   return;
 }

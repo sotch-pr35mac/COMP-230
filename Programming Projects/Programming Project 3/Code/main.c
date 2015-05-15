@@ -55,8 +55,8 @@ int main(int argc, char *argv[]) {
   /* Continuously read next line of input until End Of File is reached. */
   for(PC = 0; fgets(inst, BUFSIZ, fptr); PC += 4) {
     /* Remove the comments */
-    if(*inst == "#") continue;
-    (void) strok (inst, "#");
+    if(*inst == '#') continue;
+    (void) strok (inst, '#');
 
     /* point the token to the first non-white space character. */
     superTokenBegin = inst;

@@ -8,9 +8,9 @@
 /*
 *  TODO: write the function spec for this function
 */
-char * decToBinInt(int charDec, int len);
+void decToBinInt(int charDec, int len, char * bin[]);
 
 /*
 *  TODO: write the function spec for this function
 */
-char * decToBin(char ** charDec, int len);
+void decToBin(char ** charDec, int len, char * bin[]);
