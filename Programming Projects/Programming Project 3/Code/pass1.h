@@ -5,6 +5,8 @@
 *   Description: This is the header file for pass1.c
 */
 
+#include <stdio.h>
+
 /* START: DEFINE LABEL_H */
 
 #ifndef LABEL_H

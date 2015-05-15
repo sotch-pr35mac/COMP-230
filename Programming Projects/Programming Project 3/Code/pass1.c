@@ -10,8 +10,8 @@
  *
 */
 
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>            /* might be memory.h on some machines */
 #include "LabelTable.h"
 #include "pass1.h"
