@@ -14,11 +14,11 @@
 #include "decToBin.h"
 
 /*
-*  Description: TODO: write the description for this function
+*  Description: getOpCode takes the MIPS operation name, and returns the corresponding operation code
 *  Pre-Condition: TODO: write the precondition for this function
 *  Post-Condition: TODO: write the post-condition for this function
-*  @param TODO: add the parameters for this function
-*  @return TODO: add the return for this function
+*  @param <code>char * operation</code> is a NON-NULL well-defined "string" of the MIPS operation name
+*  @return <code>char *</code> is a "string" of the binary equivalent of the MIPS operation name
 */
 char * getOpCode(char * operation) {
     static int EQUAL = 0;
@@ -101,11 +101,11 @@ char * getOpCode(char * operation) {
 }
 
 /*
-* Description: TODO: write the description for this function
+* Description: getFormat takes the opCode as a parameter and finds what format the instruction is in
 * Pre-Condition: TODO: write the pre-condition for this function
 * Post-Condition: TODO: write the post-condition for this function
-* @param TODO: add the parameters for this function
-* @return TODO: add the paramets for this function
+* @param <code>char * opCode</code> is a NON-NULL well-defined "string" of the binary opCode
+* @return <code>int</code> returns 0 for R type instructions, 1 for I type instructions, and 2 for J type instructions
 */
 int getFormat(char * opCode) {
   static int EQUAL = 0;
@@ -169,11 +169,11 @@ int getFormat(char * opCode) {
 
 
 /*
-* Description: TODO: write the description for this function
+* Description: getFunctCode takes the function code for R type instructions and returns the binary equivalent.
 * Pre-Condition: TODO: write the preconditions for this function
 * Post-Condition: TODO: write the postconditions for this function
-* @param TODO: add the parameters for this function
-* @return TODO: add the return for this function
+* @param <code>char * operation</code> is a NON-NULL well-defined "string" of the name of the MIPS operation to get the binary equivalent for
+* @return <code>char *</code> a "string" of the binary equivalent of the function code that was passed in as a parameter
 */
 char * getFunctCode(char * operation) {
   static int EQUAL = 0;
@@ -232,11 +232,11 @@ char * getFunctCode(char * operation) {
 }
 
 /*
-* Description: TODO: write the description for this function
+* Description: parseReg takes in a MIPS register name and returns the binary value for that register
 * Pre-Condition: TODO: write the precondition for this function
 * Post-Condition: TODO: write the post-condition for this function
-* @param TODO: add the parameters for this function
-* @return TODO: add the return for this function
+* @param <code>char * regName</code> a NON-NULL well-defined "string" of the register name to be parsed into a binary register
+* @return <code>char *</code> a "string" of the binary register that should be the same as the one that was passed
 */
 char * parseReg(char * regName) {
   static int EQUAL = 0;
@@ -334,16 +334,15 @@ char * parseReg(char * regName) {
 }
 
 /*
-* Description: TODO: write the description for this function
+* Description: parseR handles the formatting, printing and parsing of R type instructions
 * Pre-Condition: TODO: write the preconditions for this function
-* Post-Condition: TODO: write the post-conditions for this function
-* @param TODO: add the parameters for this function
-* @param TODO: add the parameters for this function
-* @param TODO: add the parameters for this function
-* @param TODO: add the parameters for this function
-* @param TODO: add the parameters for this function
-* @param TODO: add the parameters for this function
-* @return TODO: add the return for this function
+* Post-Condition: The R format instruction is properly printed to the console in its correct binary format (TODO: update this when it supports printing to a files)
+* @param <code>char * instruction</code> is a NON-NULL well defined "string" of the assembly instruction being parsed
+* @param <code>char * opCode</code> is a NON-NULL well-defined "string" of the op code for the current assembly instruction in binary
+* @param <code>char * operation</code> is a NON-NULL well-defined "string" of the operation (ie, add, sub, etc.) for the current assembly instruction
+* @param <code>char ** superTokenBegin<code> is a NON-NULL well-defined "string" address for the current token of the current assembly instruction
+* @param <code>char ** superTokenEnd</code> is a NON-NULL well-defined "string" address for the current token of the current assembly instruction
+* @param <code>int lineNum</code> is a NON-NULL well-defined integer value that corresponds with the line number of the current assembly instruction
 */
 void parseR(char * instruction, char * opCode, char * operation, char ** superTokenBegin, char ** superTokenEnd, int lineNum) {
   static int EQUAL = 0;
@@ -403,16 +402,15 @@ void parseR(char * instruction, char * opCode, char * operation, char ** superTo
 }
 
 /*
-* Description: TODO: write the description for this function
+* Description: parseI handles how to parse, format, and print I type assembly instructions in binary
 * Pre-Condition: TODO: write the preconditions for this functino
-* Post-Conditions: TODO: write the post-conditions for this function
-* @param TODO: add the parameters for this function
-* @param TODO: add the parameters for this function
-* @param TODO: add the parameters for this function
-* @param TODO: add the parameters for this function
-* @param TODO: add the parameters for this function
-* @param TODO: add the parameters for this function
-* @return TODO: add the return for this function
+* Post-Conditions: The I type instruction is printed out to the console (TODO: update this when it can write out to a file)
+* @param TODO: <code>char * instruction</code> is a NON-NULL well-defined "string" of the assembly instruction
+* @param TODO: <code>char * opCode</code> is a NON-NULL well-defined "string" of the binary opCode for the instruction at hand
+* @param TODO: <code>char ** superTokenBegin</code> is a NON-NULL well-defined "string" address of the current token of the instruction at hand
+* @param TODO: <code>char ** superTokenEnd</code> is a NON-NULL well-defined "string" address of the current token of the instruction at hand
+* @param TODO: <code>int lineNum</code> is a NON-NULL well-defined integer value that corresponds with the line number of the current instruction
+* @param TODO: <code>LabelTable * table</code> is a LabelTable that is NON-NULL, well-defined and contains all the
 */
 void parseI(char * instruction, char * opCode, char ** superTokenBegin, char ** superTokenEnd, int lineNum, LabelTable * table) {
   static int EQUAL = 0;
@@ -503,16 +501,15 @@ void parseI(char * instruction, char * opCode, char ** superTokenBegin, char ** 
 }
 
 /*
-* Description: TODO: write the description for this function
+* Description: parseJ handles how to parse, format, and print J type assembly instructions and prints them out in their proper binary format.
 * Pre-Condition: TODO: write the preconditions for this function
-* Post-Condition: TODO: write the postconditions for this function
-* @param TODO: add the parameters for this function
-* @param TODO: add the parameters for this function
-* @param TODO: add the parameters for this function
-* @param TODO: add the parameters for this function
-* @param TODO: add the parameters for this function
-* @param TODO: add the parameters for this function
-* @return TODO: add the return for this function
+* Post-Condition: The J type instruction is printed out to the console (TODO: update this when it writes out to a file)
+* @param <code>char * instruction</code> is a NON-NULL well-defined "string" of the instruction itself.
+* @param <code>char * opCode</code> is a NON-NULL well-defined "string" of the opCode in binary format
+* @param <code>char ** superTokenBegin</code> is a NON-NULL well-defined "string" address of the beginning of the current token for the current instruction
+* @param <code>char ** superTokenEnd</code> is a NON-NULL well-defined "string" address of the end of the current token for the current instruction
+* @param <code>int lineNum</code> is a NON-NULL well-defined integer value that corresponds to the current line number of assembly code.
+* @param <code>LabelTable * table</code> is a LabelTable that is NON-NULL, well-defined and contains all the labels for the current assembly code file (created in pass1)
 */
 void parseJ(char * instruction, char * opCode, char ** superTokenBegin, char ** superTokenEnd, int lineNum, LabelTable * table) {
   /* Handle J type instructions here */
