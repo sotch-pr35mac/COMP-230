@@ -473,6 +473,8 @@ void parseI(char * instruction, char * opCode, char ** superTokenBegin, char ** 
 
     int decAddress = findLabel(&table, (char *)superTokenBegin);
 
+    printf("DEBUG: test2");
+
     if(decAddress == -1) {
       char * superTokenChar = (char *) superTokenBegin;
       fprintf(stderr, "Error: Could not find the address for the label %s. Setting the label's address to 0....\n", superTokenChar);

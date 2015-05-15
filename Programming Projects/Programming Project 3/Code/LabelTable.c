@@ -149,6 +149,7 @@ int findLabel(LabelTable * table, char * label) {
 
   printf("The label %s was not found.\n", label);
   return -1;
+  printf("DEBUG: test1");
 }
 
 /*
