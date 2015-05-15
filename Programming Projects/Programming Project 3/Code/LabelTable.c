@@ -37,13 +37,10 @@ void tableInit (LabelTable * table) {
     return;
   }
 
-  if(table->nbrLabels < 1) {
-    printf("The table is initialized with no labels in it.\n");
-    return;
-  }
-  else {
-    printf("Error! The table is initialized with %d label in it.\n", table->nbrLabels);
-  }
+  //Initialize the table
+  table->nbrLabels = 0;
+  table->capacity = 0;
+  table->entries = 0;
 }
 
 /* Postcondition: table now has the capacity to hold newSize
