@@ -8,6 +8,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include <math.h>
 #include "decToBin.h"
 
@@ -19,23 +20,25 @@
 * @param TODO: add the parameters for this function
 * @return TODO: add the return for this function
 */
-char * decToBin(int dec, int len) {
-  char * bin;
+char * decToBinInt(int dec, int len) {
+  char * bin[15];
+  bin[0] = '\0';
+  int k = 0;
 
   int i = 0;
   while(i < len) {
     if(dec >= (pow(2, len-k))) {
-      (void)strcat(bin, "1");
+      (void)strcat("1", (char *)bin);
       dec -= pow(2, len-k);
     }
     else {
-        (void)strcat(bin, "0");
+        (void)strcat("0", (char *)bin);
     }
 
     i++;
   }
 
-  return bin;
+  return (char*) bin;
 }
 
 /*
@@ -46,7 +49,7 @@ char * decToBin(int dec, int len) {
 *   @param TODO: add the parameters for this function
 *   @return TODO: add the return for this function
 */
-char * decToBin(char * charDec, int len) {
-  int dec = atoi(charDec);
-  return decToBin(dec, len);
+char * decToBin(char ** charDec, int len) {
+  int dec = (int) charDec - '0';
+  return decToBinInt(dec, len);
 }

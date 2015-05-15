@@ -23,7 +23,7 @@ char * getFunctionCode(char * operation);
 /*
 *   TODO: write the function spec for this function
 */
-char * parseReg(char * regName);
+char * parseReg(char ** regName);
 
 /*
 *   TODO: write the function spec for this function
@@ -33,7 +33,7 @@ void parseR(char * instruction, char * opCode, char * operation, char ** superTo
 /*
 *   TODO: write the function spec for this function
 */
-void parseI(char *  instruction, char * opCode, char ** superTokenBegin, char ** superTokenEnd, int lineNum, LabelTable * table);
+void parseI(char *  instruction, char * opCode, char ** superTokenBegin, char ** superTokenEnd, int lineNum, struct LabelTable * table);
 
 /*
 * Description: parseJ handles how to parse, format, and print J type assembly instructions and prints them out in their proper binary format.
@@ -46,4 +46,4 @@ void parseI(char *  instruction, char * opCode, char ** superTokenBegin, char **
 * @param <code>int lineNum</code> is an integer value that corresponds to the current line number of assembly code.
 * @param <code>LabelTable * table</code> is a LabelTable that contains all the labels for the current assembly code file (created in pass1)
 */
-void parseJ(char * instruction, char * opCode, char ** superTokenBegin, char ** superTokenEnd, int lineNum, LabelTable * table);
+void parseJ(char * instruction, char * opCode, char ** superTokenBegin, char ** superTokenEnd, int lineNum, struct LabelTable * table);

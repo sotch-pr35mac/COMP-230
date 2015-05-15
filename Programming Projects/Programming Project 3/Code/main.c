@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "LabelTable.h"
 #include "pass1.h"
 #include "getToken.h"
 #include "assemble.h"
@@ -45,7 +46,6 @@ int main(int argc, char *argv[]) {
   int PC = 0; /* Start the program counter at 0. */
   char inst[BUFSIZ]; /* holds the instruction */
   char* operation;
-  int lineNum = 0;
 
   /* create a small table of labels to start off */
   if((fptr = fopen(argv[1], "r")) == NULL) {

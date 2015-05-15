@@ -9,8 +9,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "assemble.h"
 #include "LabelTable.h"
+#include "assemble.h"
 #include "decToBin.h"
 
 /*
@@ -24,7 +24,7 @@ char * getOpCode(char * operation) {
     static int EQUAL = 0;
 
     /* Create a static array of MIPS operation names, where the index corresponds to an array with the correct opcode. */
-    static char * operationNames[] = [
+    static char * operationNames[] = {
       "add",
       "addu",
       "sub",
@@ -50,10 +50,10 @@ char * getOpCode(char * operation) {
       "j",
       "jr",
       "jal"
-    ];
+    };
 
     /* Create a static array of operation Codes where the index is respective to the array of MIPS operation names */
-    static char * opCodes[] = [
+    static char * opCodes[] = {
       "000000",
       "000000",
       "000000",
@@ -79,13 +79,13 @@ char * getOpCode(char * operation) {
       "000010",
       "000000",
       "000011"
-    ];
+    };
 
     /* Ensure that the lists are the same size */
     int opCodeListLength = sizeof(opCodes);
     int operationNamesListLength = sizeof(operationNames);
 
-    if(opCodeListLength != operationnamesListLength) {
+    if(opCodeListLength != operationNamesListLength) {
       fprintf(stderr, "Error: Check the opCode list length, not respective. The output will not be correct. Moving on...\n");
     }
 
@@ -116,7 +116,7 @@ int getFormat(char * opCode) {
   }
 
   /* Create a static array of operation Codes where the index is respective to the array of MIPS format instruction */
-  static char * opCodes[] = [
+  static char * opCodes[] = {
     "001000",
     "001001",
     "001100",
@@ -130,10 +130,10 @@ int getFormat(char * opCode) {
     "001011",
     "000010",
     "000011"
-  ];
+  };
 
   /* Create a static array of format codes (0 = R, 1 = I, 2 = J) where the index is respective to the opCodes */
-  static int respectiveFormat[] = [
+  static int respectiveFormat[] = {
     1,
     1,
     1,
@@ -147,7 +147,7 @@ int getFormat(char * opCode) {
     1,
     2,
     2
-  ];
+  };
 
   int opCodeListLength = sizeof(opCode);
   int respectiveFormatListLength = sizeof(respectiveFormat);
@@ -179,7 +179,7 @@ char * getFunctCode(char * operation) {
   static int EQUAL = 0;
 
   /* A list of the function names for R type instructions that has a repsective index for functCodes array */
-  static char * functionNames[] = [
+  static char * functionNames[] = {
     "add",
     "addu",
     "sub",
@@ -192,10 +192,10 @@ char * getFunctCode(char * operation) {
     "slt",
     "sltu",
     "jr"
-  ];
+  };
 
   /* A list of functcodes that has repsective indexes for functinon names array */
-  static char * functCodes[] = [
+  static char * functCodes[] = {
     "100000",
     "100001",
     "100010",
@@ -208,7 +208,7 @@ char * getFunctCode(char * operation) {
     "101010",
     "101011",
     "001000"
-  ];
+  };
 
   /* Ensure the lists are the same size */
   int functionNamesListLength = sizeof(functionNames);
@@ -238,11 +238,11 @@ char * getFunctCode(char * operation) {
 * @param <code>char * regName</code> a NON-NULL well-defined "string" of the register name to be parsed into a binary register
 * @return <code>char *</code> a "string" of the binary register that should be the same as the one that was passed
 */
-char * parseReg(char * regName) {
+char * parseReg(char ** regName) {
   static int EQUAL = 0;
 
   /* An array of register names with respective indexes for the binary value*/
-  static char * regNames[] = [
+  static char * regNames[] = {
     "$zero",
     "$at",
     "$v0",
@@ -275,10 +275,10 @@ char * parseReg(char * regName) {
     "$sp",
     "$fp",
     "$ra"
-  ];
+  };
 
   /* An array of register binary values with respetive indexes to the register names array */
-  static char * regBin[] = [
+  static char * regBin[] = {
     "00000",
     "00001",
     "00010",
@@ -311,7 +311,7 @@ char * parseReg(char * regName) {
     "11101",
     "11110",
     "11111"
-  ];
+  };
 
   /* Ensure the size of the lists are the same */
   int regNamesListLength = sizeof(regNames);
@@ -323,14 +323,14 @@ char * parseReg(char * regName) {
 
   int i = 0;
   while(i < regNamesListLength) {
-    if(strcmp(regName, regNames[i]) == EQUAL) {
+    if(strcmp((char *)regName, regNames[i]) == EQUAL) {
       return regBin[i];
     }
 
     i++;
   }
 
-  return "ERROR"
+  return "ERROR";
 }
 
 /*
@@ -412,7 +412,7 @@ void parseR(char * instruction, char * opCode, char * operation, char ** superTo
 * @param TODO: <code>int lineNum</code> is a NON-NULL well-defined integer value that corresponds with the line number of the current instruction
 * @param TODO: <code>LabelTable * table</code> is a LabelTable that is NON-NULL, well-defined and contains all the
 */
-void parseI(char * instruction, char * opCode, char ** superTokenBegin, char ** superTokenEnd, int lineNum, LabelTable * table) {
+void parseI(char * instruction, char * opCode, char ** superTokenBegin, char ** superTokenEnd, int lineNum, struct LabelTable * table) {
   static int EQUAL = 0;
 
   if(strcmp(opCode, "100011") == EQUAL || strcmp(opCode, "101011") == EQUAL) {
@@ -464,14 +464,15 @@ void parseI(char * instruction, char * opCode, char ** superTokenBegin, char ** 
     superTokenBegin = superTokenEnd + 1;
     getToken(&superTokenBegin, &superTokenEnd);
 
-    int decAddress = findLabel(table, superTokenBegin);
+    int decAddress = findLabel(table, (char *)superTokenBegin);
 
     if(decAddress == -1) {
-      fprintf(stderr, "Error: Could not find the address for the label %s. Setting the label's address to 0....\n", superTokenBegin);
+      char * superTokenChar = (char *) superTokenBegin;
+      fprintf(stderr, "Error: Could not find the address for the label %s. Setting the label's address to 0....\n", superTokenChar);
       decAddress = 0;
     }
 
-    char * addr = decToBin(decAddress, 16);
+    char * addr = decToBinInt(decAddress, 16);
 
     /* Print the statement to the console */
     printf("%i. %s%s%s%s\n", lineNum, opCode, rt, rs, addr);
@@ -495,7 +496,7 @@ void parseI(char * instruction, char * opCode, char ** superTokenBegin, char ** 
     char * imm = decToBin(superTokenBegin, 16);
 
     /* Print the statement to the console */
-    printf("%i. %s%s%s%s\n", lineNum, opCode, rd, rt, imm);
+    printf("%i. %s%s%s%s\n", lineNum, opCode, rd, rs, imm);
     return;
   }
 }
@@ -511,20 +512,21 @@ void parseI(char * instruction, char * opCode, char ** superTokenBegin, char ** 
 * @param <code>int lineNum</code> is a NON-NULL well-defined integer value that corresponds to the current line number of assembly code.
 * @param <code>LabelTable * table</code> is a LabelTable that is NON-NULL, well-defined and contains all the labels for the current assembly code file (created in pass1)
 */
-void parseJ(char * instruction, char * opCode, char ** superTokenBegin, char ** superTokenEnd, int lineNum, LabelTable * table) {
+void parseJ(char * instruction, char * opCode, char ** superTokenBegin, char ** superTokenEnd, int lineNum, struct LabelTable * table) {
   /* Handle J type instructions here */
   /* Get the value of the address */
   superTokenBegin = superTokenEnd + 1;
   getToken(&superTokenBegin, &superTokenEnd);
 
-  int decAddress = findLabel(table, superTokenBegin);
+  int decAddress = findLabel(table, (char *)superTokenBegin);
 
   if(decAddress == -1) {
-    fprintf(stderr, "Error: The address for the label %s was not found. Setting address equal to 0...\n". superTokenBegin);
+    char * superTokenChar = (char *) superTokenBegin;
+    fprintf(stderr, "Error: The address for the label %s was not found. Setting address equal to 0...\n", superTokenChar);
     decAddress = 0;
   }
 
-  char * addr = decToBin(decAddress, 26);
+  char * addr = decToBinInt(decAddress, 26);
 
   /* Print the statement to the console. */
   printf("%i. %s%s\n", lineNum, opCode, addr);
