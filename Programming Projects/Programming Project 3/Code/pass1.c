@@ -13,8 +13,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>            /* might be memory.h on some machines */
-#include "pass1.h"
 #include "LabelTable.h"
+#include "pass1.h"
 #include "getToken.h"
 
 LabelTable pass1 (FILE * fp)
