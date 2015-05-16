@@ -106,7 +106,13 @@ int addLabel(LabelTable * table, char * label, int PC) {
    }
 
    /* Was the label already in the table? */
-   if(findLabel(table, label) == -1) {
+
+   printf("DEBUG: Test 6\n");
+
+   if(findLabel(table, (char *)label) == -1) {
+
+     printf("DEBUG: Test 7\n");
+
      if(table->nbrLabels >= table->capacity+1) {
        /* Resize table */
        tableResize(table, table->capacity+1);
@@ -149,6 +155,8 @@ int findLabel(LabelTable * table, char * label) {
       i++;
     }
   }
+
+  printf("DEBUG: Test 1\n");
 
   printf("The label %s was not found.\n", label);
   return -1;
