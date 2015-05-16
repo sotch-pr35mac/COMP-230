@@ -109,20 +109,29 @@ int addLabel(LabelTable * table, char * label, int PC) {
 
    printf("DEBUG: Test 6\n");
 
-   if(findLabel(table, (char *)label) == -1) {
+   if(findLabel(table, label) == -1) {
 
      printf("DEBUG: Test 7\n");
 
      if(table->nbrLabels >= table->capacity+1) {
        /* Resize table */
+
+       printf("DEBUG: Test 8\n");
+
        tableResize(table, table->capacity+1);
+
+       printf("DEBUG: Test 9\n");
      }
+
+    printf("DEBUG: Test 10\n");
 
     /* Add the label */
      LabelEntry *tabEntries = table->entries + table->nbrLabels;
      tabEntries->label = labelDuplicate;
      tabEntries->address = PC;
      table->nbrLabels++;
+
+     printf("DEBUG: Test 11\n");
    }
    else {
      printf("The label already exists.\n");

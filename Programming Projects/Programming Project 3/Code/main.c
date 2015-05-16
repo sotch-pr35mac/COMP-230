@@ -40,12 +40,16 @@ int main(int argc, char *argv[]) {
   /* Start First Pass */
   LabelTable tableOfLabels = pass1(fptr);
 
+  printf("DEBUG: Test 16\n");
+
   /* Start Second Pass */
   char * superTokenBegin; /* beginToken for getToken calls before parsing instruction */
   char * superTokenEnd; /* endToken for getToken calls before parsing instruction */
   int PC = 0; /* Start the program counter at 0. */
   char inst[BUFSIZ]; /* holds the instruction */
   char* operation;
+
+  printf("DEBUG: Test 17\n");
 
   /* create a small table of labels to start off */
   if((fptr = fopen(argv[1], "r")) == NULL) {
