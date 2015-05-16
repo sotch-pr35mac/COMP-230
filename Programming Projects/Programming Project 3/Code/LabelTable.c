@@ -129,7 +129,7 @@ int addLabel(LabelTable * table, char * label, int PC) {
  *      not in the table or table doesn't exist
  */
 int findLabel(LabelTable * table, char * label) {
-  int i;
+  int i = 0;
 
   if(table == NULL) {
     printf("Label Table is a NULL pointer.\n");
@@ -138,18 +138,20 @@ int findLabel(LabelTable * table, char * label) {
   else {
     /* create a pointer to the entries in the table */
     LabelEntry *tabEntries = table->entries;
-    i = 0;
+
     while(i < table->nbrLabels) {
       if(strcmp(tabEntries->label, label) == SAME) {
         printf("Found label %s at index %d\n", label, tabEntries->address);
         return tabEntries->address;
       }
+
+      tabEntries++;
+      i++;
     }
   }
 
   printf("The label %s was not found.\n", label);
   return -1;
-  printf("DEBUG: test1");
 }
 
 /*
