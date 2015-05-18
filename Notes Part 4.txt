@@ -136,3 +136,62 @@ Kalamazoo College CS230 Computer Organization: Notes Part 4
 	- In MIPS Pipeline
 		- Can predict branches not taken
 		- Getch instruction only after the delay
+
+- Main Memory (DRAM) much lsower than processors.
+- Gap has widened over the past 20+ years, continues to widen
+- Memory comes in different technologies: fastest is also the most expensive
+
+- Temporal locality - likely to reuse data soon - WHY?
+	- likely to reuse data soon (loops)
+- Spatial locality - likely to access data close by - WHY?
+	- likely to access data close by (seqential nature of program instructions)
+
+- Let's Talk About Caching
+	- Check if data is in fast memory (hit); if not (miss), fetch a block from slower memory - "Block" may be a single word or several words
+	- Fetch tiem is miss penalty
+	- Hit rate is a fraction of memory accesses that are hits; miss rate = 1 - hit rate
+	- If locality is high, hti rate gets closer to 1
+	- Effect: memory is almost as fast as fastest level, as big as bigggest (slowest) memory
+	- Direct Mapped:
+		- Any given memory address, can only be found in once cache address (although many memory addresses will mpa to the same cache address)
+	- 256 Byte Cache (64 4-byte words)
+	- Each Cache "line" or "block" holds one word (4 bytes)
+	- Byte in chche is addressed by lowest two bits of address
+	- Cache line is addressed by ext six bts in address
+	- Each Cache line has a "Tag" matching the high 24 bits of memory address
+	- Write Through
+		- Write to memory and to cache
+		- Time to write to memory could delay instruction --> write buffer can hide this latency
+		- Write Back (also called Copy Back)
+			- Write only to cache
+			--> mark cache line as "dirty", using and additional bit
+			- When cache line is replaced, if dirty, then write back to memory
+
+- Accelerating Memory Access
+	- Wider bus
+	- Wider memory access
+	- How can Cache take advangtage of faster memory access?
+	- Store more than one word at a time on each "line" in the cache
+		- Any cahce miss brings the whole line containing the item into the cache
+	- Takes advantage of spatial locality
+		- next tiem needed is likely to be at the next address
+
+- Cache with mulit-word lines
+	- 256 Byte cache - 64 4 byte words
+	- Each block (line) contains four words (16 bytes)
+		- 2 bits to address byte in word
+		- 2 bits to address word in line
+	-Cache contains sizteen four-word blocks
+		- 4 bits to address cache block (line)
+	- Each cache lin ehas tag field for the upper 24 bits of the address
+
+- Speeding up Cache
+	- execution time = (execution cycles + stall cycles) * cycle time
+		stall cycles = # of instructions * miss ratio * miss penalty
+	- We can imporve performance by
+		- Reducing miss rate
+		- Reducing miss penalty
+	- More flexible palcement of blocks
+		- Miss rate
+	- Caching the Cache
+		- Miss penalty
