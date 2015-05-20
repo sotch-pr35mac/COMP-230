@@ -1,0 +1,116 @@
+What is a Diesk?
+	Any sotrage mechansm involving a rotating disk.
+		- Floppy Disk
+		- Optical Disk
+		- Hard Drive Disk
+	- IBM first Hard Disk
+	- How does it work?
+		- Magnetic Hard Disk Structure
+			- Platters
+			- Tracks
+			- Sectors
+		- Read write
+			- Moveable read write head, each plattery gets its own read write head
+		- Step 1: Seek
+			- Operating System Interaction
+			- Seek
+		- Step 2: Rotational Latency
+			- Average rotaional latency = .5 rotation / 5400 rpm = 5.6 ms
+		- Step 3: Disk Transfer Time
+			- Is a function of sector size, rotation time, shenme shenme shenme
+			- Sub-Step 1: Starting Position
+			- Sub-Step 2: Seek Time
+			- Sub-Step 3: Rotational Latency
+RAID:
+	- Redundant Array of Independant Disks
+	- Storage Virtualization
+	- Small Form Factor, 1987, Berkeley
+	- How does RAID Work?
+		- Multiple drives
+		- Software or Hardware implementation
+			- Either OS or Drive firmware
+			- Dedicated RAID controller
+		- "Levels"
+		- !! I'm still not entirely sure why you would want to use RAID, what is RAID in simple terms? !!
+		- RAID 0
+			- Stiping
+				- Distribute file across each disk as evenly as possible
+				- The throughput of one disk times the amount of disks
+			- No mirroring
+			- No parity
+				- Check for data corruption checking the "hash" (parity bit) of sorts
+			- If any disk fails in the set of disks, you lose the entire volume
+		- RAID 1
+			- Mirroring
+				- Increasing read performance
+				- All you data is copied accross all disks
+				- Does not protect against data corruption
+				- but you can increase the read time because you can read in from each drive all at the same time
+			- No parity
+			- No striping
+		- RAID 2: 
+			- No one uses this
+			- Stipes data at the bit leve
+			- Using Hamming Code as a form of parity
+				- if you use more htan one parity bit you can point to the data error within a given value
+			- So there are like a lot of drawbacks
+				- all of the disks are sync
+			- if you want to read anything, all the drives have to reach the same index at the same time
+			- The Hamming Code calculatinos are pretty expensive
+		- RAID 3:
+			- Stripes data at byte level
+			- Has a dedicated parity disk
+		- RAID 4:
+			- Block level striping
+			- Has a dedicated parity disk
+		- RAID 5: 
+			- Block Level Striping
+			- Distributed Parity
+			- Requires at least 3 disks
+		- RAID 6:
+			- Block level stiping
+			- Adds another parity block
+				- This just adds another layer of redundancy
+			- This is pretty much just like RAID 5 except with a dip in performance due to more parity calculations
+		- Non-Standard RAID:
+			- Nested (Hybrid) RAID
+				- RAID 10
+				- A RAID within A RAID, either hardware of virtual or both
+			- Intel Matrix RAID
+				- Partitioning RAID volumes for quicker speed
+
+SSD "Revolution"
+	- Why SSD
+		- They are just better, storage not as good, but they are fucking fast
+	- What is an SSD?
+		- No read write heads, they just have integrated circuit assemblies
+		- NAND Flash
+	- NAND Flash
+		- Floating Gate Transistor
+		- slower than DRAM, much faster than HHD
+		- Keeps memory without power
+	- Pros and Cons
+		- Pros
+			- Faster
+			- quieter
+			- draws less power
+			- more rugged
+			- eas adoption
+		- cons
+			- expensive
+			- low capacity
+				- thousands of dollars for 1.2 TB, whereas 3TB hdd for $300
+			- wear out
+				- NAND memory can only be run so many times before it runs out
+	- Alternatives
+		- DRAM
+			- historically made from DRAM, INCREDIBLY EXPENSIVE
+			- Non-volital, when the power is off, you lose all of your data
+		- NV-DIMM
+			- On power down all of the down all data is transfered to NAND
+			- On power up all the data transfere to NV-DIM
+		- UltraDIMM
+			- Just beter and more expensive nv-dimm
+		- SSHDS
+			- hybrid drive (like what i have)
+			- Hard drive is used as the main memory, and then SSD is used as a cache for the hard drive

@@ -63,22 +63,14 @@ LabelTable pass1 (FILE * fp)
                 /* Add label to table */
                 if (addLabel (&table, tokBegin, PC) == 0)
                 {
-                    printf("DEBUG: Test 12\n");
-
                     /* error message already printed */
                     (void) fclose (fp);
                     return table;
-
-                    printf("DEBUG: Teset 13\n");
                 }
             }
         }
 
-        printf("DEBUG: Test 14\n");
-
         /* EOF */
         (void) fclose (fp);
-
-        printf("DEBUG: Test 15\n");
         return table;
 }

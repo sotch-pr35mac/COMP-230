@@ -471,11 +471,7 @@ void parseI(char * instruction, char * opCode, char ** superTokenBegin, char ** 
     superTokenBegin = superTokenEnd + 1;
     getToken(&superTokenBegin, &superTokenEnd);
 
-    printf("DEBUG: Test 2\n");
-
     int decAddress = findLabel(&table, (char *)superTokenBegin);
-
-    printf("DEBUG: Test 3\n");
 
     if(decAddress == -1) {
       char * superTokenChar = (char *) superTokenBegin;
@@ -533,11 +529,7 @@ void parseJ(char * instruction, char * opCode, char ** superTokenBegin, char ** 
   superTokenBegin = superTokenEnd + 1;
   getToken(&superTokenBegin, &superTokenEnd);
 
-  printf("DEBUG: Test 4\n");
-
   int decAddress = findLabel(&table, (char *)superTokenBegin);
-
-  printf("DEBUG: Test 5\n");
 
   if(decAddress == -1) {
     char * superTokenChar = (char *) superTokenBegin;
