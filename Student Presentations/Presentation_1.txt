@@ -114,3 +114,9 @@ SSD "Revolution"
 		- SSHDS
 			- hybrid drive (like what i have)
 			- Hard drive is used as the main memory, and then SSD is used as a cache for the hard drive
+
+
+Notes:
+	- These guys went a little fast, they were good at answering questions though
+	- Some of the things were not very simple, and a bit confusing, but it was a confusing topic
+	- This was done by Dan and Jacob

@@ -1,0 +1,26 @@
+Multiplication:
+	- So we have two parts: multiplicand, multiplier, and the product
+	- We can do binary multiplication the same way we do in decimal
+	- n bit multiplicand * n bit multiplier, we can an n bit product at most
+	- All we are really doing is testing the multipliers digits one by one agains the rest of the mutlicands digits
+	- Then we add up all the intermediate values together and get the product
+
+	- So here we have a little bit of a flow chart
+		- Start 
+		- Test Mutliplier 0
+			- If result 0
+				- shift the multiplicand register to the left one bit
+				- GOTO sll
+			- If result 1
+				- Add multiplicand to product and place result in product register
+				- GOTO sll
+		- Multiplicand sll
+			- GOTO  multiplier srl
+		- Mulitplier srl
+			- GOTO: 32 reps
+		- 32 repts
+			- If we have done the n-amount of bits GOTO: DONE
+			- If we have not done n-amount of bits GOTO: START
+
+- Notes:
+	- Could have been more engaging but was really informative
