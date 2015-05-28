@@ -70,7 +70,6 @@ LabelTable pass1 (FILE * fp)
             }
         }
 
-        /* EOF */
-        (void) fclose (fp);
+        /* EOF: but doesn't close the file */
         return table;
 }

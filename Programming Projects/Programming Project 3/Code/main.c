@@ -15,14 +15,20 @@
 #include "assemble.h"
 
 /*
-*  TODO: write function spec
+*  TODO: write main function spec
 */
 int main(int argc, char *argv[]) {
   int EQUAL = 0;
-  char buffer[BUFSIZ];
   FILE* fptr;   /* file pointer */
   int lineNum = 0;
   int length;
+
+  /* Start Second Pass */
+  char * superTokenBegin; /* beginToken for getToken calls before parsing instruction */
+  char * superTokenEnd; /* endToken for getToken calls before parsing instruction */
+  int PC = 0; /* Start the program counter at 0. */
+  char inst[BUFSIZ]; /* holds the instruction */
+  char* operation;
 
   /* Was a file passed in a parameter? */
   if(argc == 2) {
@@ -40,17 +46,9 @@ int main(int argc, char *argv[]) {
   /* Start First Pass */
   LabelTable tableOfLabels = pass1(fptr);
 
-  /* Start Second Pass */
-  char * superTokenBegin; /* beginToken for getToken calls before parsing instruction */
-  char * superTokenEnd; /* endToken for getToken calls before parsing instruction */
-  int PC = 0; /* Start the program counter at 0. */
-  char inst[BUFSIZ]; /* holds the instruction */
-  char* operation;
+  printLabels(&tableOfLabels);
 
-  /* create a small table of labels to start off */
-  if((fptr = fopen(argv[1], "r")) == NULL) {
-    fprintf(stderr, "Error: Cannot open file %s.\n", argv[1]);
-  }
+  rewind(fptr);
 
   /* Continuously read next line of input until End Of File is reached. */
   for(PC = 0; fgets(inst, BUFSIZ, fptr); PC += 4) {
@@ -60,7 +58,7 @@ int main(int argc, char *argv[]) {
       continue;
     }
 
-    strtok (inst, (char* )'#');
+    (void) strtok (inst, "#");
 
     /* point the token to the first non-white space character. */
     superTokenBegin = inst;
@@ -78,6 +76,11 @@ int main(int argc, char *argv[]) {
 
     /* Get operation format */
     char * opCode = getOpCode(operation);
+
+    if(opCode == -1) {
+      fprintf(stderr, "Error: The opCode for the operation %s was not found in line %i.\n", operation, lineNum);
+    }
+
     int format = getFormat(opCode);
 
     /* Parse the instruction */

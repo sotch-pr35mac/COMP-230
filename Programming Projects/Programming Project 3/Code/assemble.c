@@ -21,11 +21,12 @@
 *  @param <code>char * operation</code> is a NON-NULL well-defined "string" of the MIPS operation name
 *  @return <code>char *</code> is a "string" of the binary equivalent of the MIPS operation name
 */
-char * getOpCode(char * operation) {
+int getInfo(char * operation, char ** opCode, int * format) {
     static int EQUAL = 0;
+    static int NUM_OPS = 15;
 
     /* Create a static array of MIPS operation names, where the index corresponds to an array with the correct opcode. */
-    static char * operationNames[] = {
+    static char * operationNames[NUM_OPS] = {
       "add",
       "addu",
       "sub",
@@ -54,8 +55,8 @@ char * getOpCode(char * operation) {
     };
 
     /* Create a static array of operation Codes where the index is respective to the array of MIPS operation names */
-    static char * opCodes[] = {
-      "000000",
+    static char * opCodes[NUM_OPS] = {
+      "100000",
       "000000",
       "000000",
       "000000",
@@ -82,23 +83,20 @@ char * getOpCode(char * operation) {
       "000011"
     };
 
-    /* Ensure that the lists are the same size */
-    int opCodeListLength = sizeof(opCodes);
-    int operationNamesListLength = sizeof(operationNames);
+    static int formats[NUM_OPS] = {
 
-    if(opCodeListLength != operationNamesListLength) {
-      fprintf(stderr, "Error: Check the opCode list length, not respective. The output will not be correct. Moving on...\n");
-    }
+    };
 
-    int i = 0;
-    while(i < operationNamesListLength) {
+    int i;
+    for(i = 0; i < operationNamesListLength; i++) {
       if(strcmp(operation, operationNames[i]) == EQUAL) {
-        return opCodes[i];
+        *opCode = opCodes[i];
+        *format = formats[i];
+        return 1;
       }
-      i++;
     }
 
-    return "Error";
+    return 0;
 }
 
 /*
