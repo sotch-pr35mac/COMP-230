@@ -3,18 +3,32 @@ Preston Stosur-Bassett
 
 4.3.1
 	What is the clock cycle time with and without this impovement?
+		Without the improvement we are looking at 1130ps.
+		With the improvement we are looking at 1430ps.
 
 4.3.2
-	What is the speedup achieved by adding this impovement?
+	What is the speedup achieved by adding this impovement
+		It's actually a slowdown by 300ps.
 
 4.3.3
 	Compre the cost/performance ratio with and without this improvement.
+		Without the improvement the cost/performance ratio is: 2.93805
+		With the improvement the cost/performance ratio is: 2.74126
+		
+		So what it comes down to is that even though the clock cycle time is actually slower with the improvement, the cost/performance ratio is actually better with the improvement.
 
 4.8.1
 	What is the clock cycle time in a pipelined and non-pipelined processor?
+		The Non-Pipelined clock cycle time is determined by the sum of all the stages: 1250ps
+		The Pipelined clock cycle time is determined by the slowest of all the stages: 350ps
 
 4.8.2
 	What is the total latency of an LW instruction in a pipelined and non-pipelined processor?
+		Since the LW command uses all the stages, a non-pipelined LW command takes: 1250ps
+		However, a pipelined LW command takes 5 times the cycle time, which is: 1750ps
 
 4.8.3
 	If we can split one stage of the pipelined datapath into two new stages, each with half the latency of the original stage, which stage would you split and what is the new clock cycle time of the processor?
+		We would want to split the stage with the highest latency, which is ID (Instruction Decode), which would then become 175 each. 
+		Our "new" non-pipelined clock cycle time would be: 1250ps
+		However our new pipelined clock cycle time would be: 300ps, and the LW command would take 1500ps.

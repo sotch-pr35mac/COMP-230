@@ -1,0 +1,61 @@
+Parallel Programming
+	- Kamal and YiCong
+- Multicore processing is really important
+	- Parallel is something that is not going to be handled by hardware, it is the job of the software programmer.
+
+- Pratical Parallel Programming
+	- OpenMP
+		- Set of compiler directives, library routines, and environment variables (API)
+		- Explicit parallelism (vs. automatic)
+		- OpenMP (pre-installed with gcc)
+- Parallel Hello World
+	#include <stdio.h>
+	int main(void) {
+		#pragma omp parallel
+		printf("Hello World\n");
+	}
+	
+	- A load balance will determine which core takes what task for you
+
+- Parallel Thread Tasking
+
+- Common Errors: Race Condition
+	- When one thread is trying to access data that another thread is working on
+		
+		int a = 0; n = 1000, i;
+		
+		#pragma omp parallel for
+			for(i = 0; i < n; i++) {
+				a += 1;
+			}
+
+	- This is a big big issue, like a seriously big issue
+
+- "Performance doesn't matter if we are getting the wrong results"
+
+- #pragma omp critical
+	each thread can run one task at once, so you make it a bit more sequential
+- #pragma omp parallel for reduction(+: ave)
+	This runs sequential code properly in parallel
+- #pragma omp parallel for ordered
+	This isn't running it in parallel anymore, it runs faster than criticall, but slower than reduction
+
+- Parallelism depends on Hardware
+	- The more cores, the more effective parallel code becomes
+	- Innovative techniques are using GPUs to compute
+	- Supercomputeres are taking the lead
+
+- To create a parallel program;
+	- sequentional computation --> decomposition into subtasks --> assignment to logical processes --> orchestration to parallel programming --> mapping to processors
+
+- Fork / Join Pattern
+	- Designed to make divide and conquer algorithms easy to parallelize
+	- Tasks are created dynamically
+	- Manages tasks accroding to their relationship
+	- Parent task creates new tasks (fork) then waits
+	- Then it joins them together to get the result
+	- They are very similair to recursive programming, its pretty much the same paradigm
+
+- Notes:
+	- These guys had a lot of redudant information, but overall it was extremely well informed and engaged and just very good in general
+	- They did run a little long

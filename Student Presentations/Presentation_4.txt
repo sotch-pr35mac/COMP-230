@@ -1,0 +1,83 @@
+GPU
+Adian Liam and Ed
+
+- Functionality
+
+- Usually located on the video card
+- Video card
+	- Translates hardware into video display device
+	- GPU is Main Component
+- CPU vs. GPU
+	- CPU
+		- all purpose
+	- GPU
+		- handles polygons
+
+- History of the GPU
+	- Sepcialized chips for graphics showed up in the 1970s
+	- Made their explicit way to pcs by hte 80s, and became more general
+	- These early gpus
+
+- 1990s
+	- graphic chips become more general, ore comonplace as a result
+	- much development driven by gaming
+	- chips consistently adopt more of the graphics, pipeline, leaves less to the CPU
+- True GPUs
+	- in 2001, programmable piplines were instroduced to GPUs, and would become a trend
+	- parallel processing develops
+	- GPU development exceeded moore's law
+
+- Modern GPUS/ A look forward
+	- GPUs grow to become more flexible, more similar to CPUs
+	- Parallelism and prgrammability rise
+	- GPUs melding into CPUs as they become more general purpose?
+
+- How does the GPU Work?
+	1. Each shape is represented mathematically
+	2. Each shape is "rasterized" (filled in)
+	3. The pixel's color is determined
+	4. The pixels are dhown
+	- Fixed Pipeline, (as opposed to programmable pipelines)
+
+- Triangles
+	- Each shape is modeled using triangles
+	- Each triangle is comprised of points that are reprsented by vectors
+	- Each shape is modeled in three dimentions
+
+- Vectors and matrices
+	- The points are represente dby vectors with 4 coordinates (3 spacial)
+		- This allows for eassier transormation of points
+	- Shapes are transformed using algorithims that utilize linear algebra
+	- Output is common coordinate system with the view at the origin
+
+- Lighting
+	- Next the color is determined
+		- the effect of individual each light is summed
+		- This is calculated using the dot product of two vectors
+
+- Rasterization
+	- Each surface is rasterized (turned into pixels)
+	- Using matrix transformation, each surface is projected to the viewer
+		- Each pizel can be rasterized independently, leading to parallel processing
+
+- Hidden surfaces
+	- Shapes overlap shapes
+	- To show the closest shape, a depth buffer is used
+		- Each shape has a number indicating its distance to the viewer
+		- This number is compared and a lower number replaces a higher number
+
+- Fixed Function vs Programmable
+	- So what we have gone through thus far has been called Fixed Function, now we are going to talk about how it is different from a Programmable model
+
+- Programmable Pipelines
+	- Fixed functions were effective but offered little to no flexablity
+	- Programmable pipelines gave deeveloper a chance to utilizes many new effects
+		- This is done through something called Shader, which is just like a plugin
+
+	- New abilities
+		- images like the one with water is only possible with a programmable pipeline
+		- GPU have recently begun to be used to process general purpose, math heavy tasks such as a stastical processeing or breaking string hashes (like mining bit coins)
+
+Notes:
+	- They were chopping and not very engaged, they said um a lot, and didn't seem to have a very well reheresed presentation at all
+	- It was very rushed

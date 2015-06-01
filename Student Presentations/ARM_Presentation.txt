@@ -1,0 +1,55 @@
+ARM Cortex A8
+Keenan and Josh
+
+What is ARM?
+	- ARM Holding founded in 1985
+	- Parent compnay of the ARM Cortex A8 processor core, and arm risc architecture 
+	- lincenses ip cores for braod spectrum use in many electronics
+What is a8?
+	- Released 2005
+	- 32bit unicore processor that implements ARMv7-A architecture
+	- Licensed by Apple, Nintendo, TI and many others
+
+It's actually a pretty powerful motherfucking (video), can handle a lot of videos well too
+
+ARMv7 Architecture
+	- Similair to MIPS
+	- Has own instruction sets, registers, etc.
+	- 16 bit operations and 32 bit operations
+	- Support for multiworld arithmetic
+	- "BLoack" load and store
+
+What exactly does the ARM A8 do?
+	- Core != chip
+	- defined as "a logical execution unit containing an L1 cache and functional units"
+
+What does it consist of?
+	- Single core processor
+	- NEON SIMD
+	- 13 integer pipeline stages and 10 NEON pipeline stages
+	- VFPv3 Floating Point Unit
+	- 32 KB instruction cache/ 32 kb data cache
+	- clock rate at 1GHz
+	- 2014 kb level 2 cache
+
+Pros and Cons
+	- Single core so multitasking is not as fast as some dual-core processors
+	- NEON SIMD accelerates speed at which signal processing algorithms are performed, allowing for abig increase in performance
+	- @ watt thermal design, energy saving
+	- A branch mispredict causes a 13- cycle penalty
+	- 16 bit "thumb instruction set" saves space by increasing code density
+
+Performance
+	- 2 instructions per clock cycle
+	- Ideal CPI is .5
+	- 80% of stalls are due to pipelining hazards
+
+The Pipelining
+
+ARMv8 (64 bit)
+	- RISC Architecture
+	- Drips anything unusual from v7
+	- PC is no longer one of the registers
+	- DRopped Load multiple and store multiple
+	- 32 general purpose registers, one hardwired to 0
+	- includes divide
