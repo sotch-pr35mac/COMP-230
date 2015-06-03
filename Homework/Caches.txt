@@ -33,7 +33,7 @@
 								111 | 0 |      |  
 
 3. Assume that these 5 data requests are in a loop, and so will be repeated many times in a row. What will the hit rate coverge to for this set of requests?
-	3/4 hit rate
+	75% hit rate
 
 4. The tables below represent an 8-line, 2-way associative cache, a 4-line, 2-way associative cache, and a 4-line, fully associative cache. (Fully associative means that all the lines in the cache are part of a single, large set.)
    Show the final contents of each cache after 1 iteration of the 5 address requests above, assuming an LRU replacement policy. What would the hit ratio converge to for each one, assuming that the 5 address requests are in a loop, and so will be repeated many times in a row?
