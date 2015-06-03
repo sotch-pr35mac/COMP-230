@@ -1,0 +1,71 @@
+Future of Processing
+These two guys I don't know who they are
+
+Brain Chip - SyNAPSE
+	- Dsigned by IBM, inroduced on Agusust 7th, 2014
+	- different from a standard chip - event driven and runs only when necessary
+	- does not use a clock
+
+TurNorth (SyNAPSE)
+	- the truenorth chip has accomplished the follwoing points
+	- each point (transistor) is each individually programmable
+	- modeled after the brain
+		- allows cores to fail, allowing for the whole brain to keep working
+	- async, because it doesn't run on a clock
+	- but some things happen in time, but not on a clock
+	- neuromorphic architecture
+	- IBM had to create a new programming language to make use of this, and new libaries and everything
+
+Technology and Architecture
+	- A human scale simulation with 100 trillion synapses executed 1500 times slower than real time using the Sequoia supercomputer, a hypothetical computer to run this in real time would take 12GW, whereas a human only consumes 20W
+	- brain uses organic wetwear over silicon-based technologyu
+	- there are still limits to silicon based technologies
+	- wetwear is a new feild where you can build a computer based on an actual living-neurons, and they actually built a prototype
+
+WetWear
+
+Fluidics
+	- fluidic computeing is the idea of sing fluids instead of electrical signals
+	- standford used this to develop bubble logi, where a bubble appears or disappears in a channel or whether one is present or not
+	- fluidics will not replace silicon as a computing platform, as liquids move far too slowly. instead, it offers a unique way to process and analyze blah blah blah
+
+Chemical Computing
+	- this is based on semi-solid chemical where data are represented as varying concentrations
+	- brois belousov and anatoly xhabtinsiky, checmical based computers are often budded bz computers
+	- it is a natrually parallel design, with computation occuring simuntaneously at every location along a reaction front
+	- simple logic gates have been demonstrated blah blah
+
+Moores law
+	- Alternatives
+		- Multicore-parallelism is inhibited by amdahl's law
+			- not everything can run in parallel
+		- Intel's 3-d chip
+		- Carbon
+			- silicon and dark silicon: we can't use it all
+			- graphene
+			- major issue: no bandgap = NO OFF STATE
+			- carbon nanotubes: successfully made by IBM at 10nm wide, in a machine with about 10,000 transistors
+			- generally must be incredible pure, hard to produce commercially
+			- invertedd transistor: sudden increase in current result in a sudden drop in oltage accross the crcuit , creating what is called negative differential resistance
+			- in effect, it COULD work as a logic gate, but no one has yet managed to produce one
+			- 10+ years till we see it on the market, if it works
+
+		- Memristors
+			- new fundemental cicuit element
+			- first proposed in 1961 by leon true
+			- it was developed mathmatically, until 2010 when it was actually built it
+			- so it can work as a logic gate, and it has memory initself
+			- HP is working on this right now
+			- IBM has also done work with it
+			- It works also like brain neuron as well
+			- Intel is also working on this
+			- Solution to Vonn Neuman bottle neck because we have memory inside the cpu in each transistor, 
+		
+		- Silicon Photonics and HP's machine
+			- IBM anncounced they had proced nanophotonics, which uses light for information transfer, rather than electrical signals
+			- shortly thereafter roced a chip which integrated both electrical and optical components on the same chip, managing to produce data transfer at light speed
+
+		- The issue with the last one is that we don't have a programming language that supports any of this
+
+- Notes:
+	- not very professional, well informed, not the best rehersed

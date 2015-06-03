@@ -1,0 +1,74 @@
+Quantum Computing
+Jordan Meiller and Araiah Lacey
+
+The basics
+	- qubits
+		- 1 bit = 0 or 1
+		- 1 qubit = 0 to 1 (refers to them as states and not numbers)
+		- facilitates parallelism
+		- n qubits = up to 2^n states
+	- atomic particles
+		- store qubits
+		- atoms / photons/ electrons
+
+gates and networks
+	- gates represented as matrices
+		- n qubits = 2^n x 2^n unitary matrix
+		- gate input/output must be equal
+	- hadamard gate
+		- ration of single qubit
+	- netowkrs made up of gates
+	- computer operates by changing qubits states
+
+application
+	- quantum computing with photons
+		- wave particle duality (double slit experiment) (this is from that silly animation with that werid fucking looking guy throwing the photons through that things and swinging around in bad 3d animation from the early 2000's)
+		- little noise or dechoherence
+		- travel at the speed of light
+		- easily manipulated (for gate operations)
+	- waveguides
+		- phons are reflected internally
+		- like wires for photons
+	- beam splitters
+		- like the double slits
+		- with one photon, 50/50 chance
+	- mach zhnder interferometer (mzi)
+		- uses phase shifters to preceicsely affect probabilistic behavior of the photon'
+
+Example:
+	- quantum interference
+		- two photons, a and b, on two paths with two detectors and a beam splitter in the middle
+			- four possibilities
+		- quantum probability says something against our notion of logic
+			- probabalistic amplitude (represented by complex numbers)
+				- the probability of both happening cancels out
+				- now we have two possibilities
+
+Algorithms
+	- deterministic vs nondeterministic
+		- deterministic: for a given state and input, there is only one possible otuput
+		- nondeterministic: multiple possible outputs
+		- quantum computers are nondeterministic
+	np problems
+		- we can solve them on an quantum system easily
+			- bqp: bounded-error quantum polynomial
+				- always runs in polynomial time MOST OF THE TIME, USUALLY
+	- reasons why you don't have ot keep your data under your mattress
+		- qubit storage gets really big really fast
+		- noise and echoherence (reducing possibilities to one)
+		- probability
+	- so you can crack RSA really easily with quantum computing
+
+Pratical uses of quantum computers
+	- cyrtography / cryptanalysis
+		- complex encryption and decryption software
+	- biomedical engineering
+		- dna sequencing, mapping the body at the molecular level
+		- cancer detection and drug design
+	- transportation
+		- faster, safer, possibly self-driving
+	- simulating physics
+		- preceision weather forecasting
+
+Notes:
+	- Very well rehersed, well informed, and friendly, uses simple terms to describe the subject whcih is difficult

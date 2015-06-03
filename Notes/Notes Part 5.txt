@@ -1,0 +1,13 @@
+Virtual Memory
+
+- When the computer runs out of RAM, (because its all just going through each program one by one to handle the queue)
+
+- Virtual Translation
+	- A virtual address is stranslated to a physical address by a combination of hardware and software
+	- (There is something about page faults?)
+		- Replacement policies when we have page falls, which page do we kick out
+
+- Thus it takes an extra memory access to translate a VA to a PA
+- This makes memory accesses very expensive
+- The hardware fix is to use a Translation Lookaside Buffer (TLB) - a samll cache that keeps track of recently used address mappings
+	- TLB can be organized as fully associative or direct mapped

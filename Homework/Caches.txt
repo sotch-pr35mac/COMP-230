@@ -1,0 +1,83 @@
+1. Consider a direct-mapped cache that has 4 lines, each containing 1 4-byte word. Assume that the cache has a hit access time of 1 ns and a miss penality of 50 ns(ie, the full access time is 51 ns when there is a miss: the miss penalty + usual access time). What is the average memory access time for the following program fragment, assuming that none of the instructions are in the cache to begin with?
+	100: 		addi $t0, $zero, 0	(51)
+	104:		addi $t1, $zero, 100	(51)
+	108:	loop: 	add $s0, $s0, $s1	(51) (1 x100)
+	112:		addi $t0, $t0, 1	(51) (1 x100)
+	116:		bne $t0, $t1, loop	(51) (1 x100)
+
+		Total Time: 51 * 5 + 100 * 3 = 453ns
+
+		
+
+2. Consider a direct-mapped cache that has 8 lines, each containing 1 word. For simplicity, assume that a word is 2 bytes long, which means that addresses are also 2 bytes.
+	- Are any address bits used to determine the byte within the cache line? If so, how many?
+		Yes, 1
+	- Which address bits indicate the line to which that address maps?
+		1 byte bit, 3 lines (index) bits, and the tag
+	- How many bits are needed for the tag?
+		4 bits for the tag
+
+
+	Consider the following set of memeory address requests. How many of the requests would be hits and how many misses, assuming that the cache is empty beforehand? What would be the final contents of the cache?
+		[FIGURE]
+		
+		They are all going to be misses.
+		
+		00000000 00000000 | 0000(hex) | miss		000 | 1 | 0000 | 00000000 00000000
+		00000000 00101110 | 000F(hex) | miss		001 | 0 |      | 
+		00000000 00101010 | C003(hex) | miss		010 | 1 | 0000 | 11110000 00000000
+		00000000 01011010 | F000(hex) | miss		011 | 0 |      | 
+		00000000 01011110 | FFFF(hex) | miss		100 | 0 |      |
+								101 | 0 |      |	
+								110 | 1 | 0000 | 1111 1111 1111 1111
+								111 | 0 |      |  
+
+3. Assume that these 5 data requests are in a loop, and so will be repeated many times in a row. What will the hit rate coverge to for this set of requests?
+	3/4 hit rate
+
+4. The tables below represent an 8-line, 2-way associative cache, a 4-line, 2-way associative cache, and a 4-line, fully associative cache. (Fully associative means that all the lines in the cache are part of a single, large set.)
+   Show the final contents of each cache after 1 iteration of the 5 address requests above, assuming an LRU replacement policy. What would the hit ratio converge to for each one, assuming that the 5 address requests are in a loop, and so will be repeated many times in a row?
+
+	00 |   |      | 
+	   |   |      |
+	---------------
+	01 |   |      |
+	   |   |      |
+	---------------
+	10 |   |      |
+	   |   |      |
+        ---------------
+	11 |   |      |
+	   |   |      |
+	---------------
+
+	0 |   |     | 
+	  |   |     |
+	-------------
+	1 |   |     |
+	  |   |     |
+	-------------
+
+	  |   |     |
+	  |   |     |
+	-------------
+	  |   |     |
+	  |   |     |
+	-------------
+
+5. Now assume that we have a direct-mapped cache with 4 lines, each of which contains 4 two-byte words. How many of the requests wolud be hits and how many misses, assuming that the cache is empty beforehand? What would be the final contents of the cache? (Put a "v" in any word in the cache that is valid but the information you've been given isn't enough to know what the value should be.)
+
+	00000000 00000000 | 0000 (hex) | 
+	00000000 00101110 | 000F (hex) | 
+	00000000 00101010 | C003 (hex) | 
+	00000000 01011010 | F000 (hex) |
+	00000000 01011110 | FFFF (hex) | 
+
+	00 |   |     |
+	01 |   |     |
+	10 |   |     |
+	11 |   |     | 
+
+6. Assuming that the 5 data requests are in a loop, what does the hit rate converge to for this set of requests?
+
+7. Which of the exercises above illustrate the effects of spatial locality? Which exhibits the effects of temporal locality?

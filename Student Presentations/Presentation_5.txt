@@ -1,0 +1,44 @@
+Moore's Law
+Cappa and [--]
+
+The integrated circuit is going to get smaller on a exponential cscale
+
+What
+DAta
+Impact
+	Best Case: The computer game insdustry, graphics cards have a ton of transistors
+Negative Implication Obsolescence
+	- Harmful to environment
+	- things go obsolete very rapidly
+	- lots of toxic material used in the production of computers
+Ultimate Limit
+	- "It can''t continue forever"
+	- The end of moores law would come between 2013 and 2018 (we have 3 years left)
+	- it does seem that the speed of increase has already slowed down. 
+
+How small can a transitor be before they stop working?
+	- transistors eventually would reach the limits of minaturization on the atomic size
+	- when the transitor size goes to the limit, the transitor count goes to the limit
+	- we also hit the limit for sequential clock speed, which means dual core is the way of the future
+
+Multicore
+	- The development of the multicore cpu
+		- First dual core showed up around 2004
+		- quad core and octacore is becoming popular nowadays
+		- hexadecane-core super computer developed for some military use
+
+	- why cpu goes to multicore?
+		- two way to make computers cpu go faster
+		- by making each operation count for more
+		- by making more operation happened per second
+		- transistor is small enough
+		- more enegery and more expense
+		- heat will hotter and hotter
+advantages and disadvantage of multicore
+	- advantage
+		- chepaer, and faster than a single core
+	- disadvantage
+		- parrallel programming needed or it works as a single core
+
+Notes:
+-They went very fast. very very fast
