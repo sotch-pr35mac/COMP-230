@@ -1,0 +1,25 @@
+
+
+
+> On Jun 4, 2015, at 9:44 PM, Alyce Brady <Alyce.Brady@kzoo.edu> wrote:
+> 
+> Since so many people found the Pipelining homework assignment so difficult to read/understand because the questions were not very well worded, I have put together a replacement homework assignment that I will use next year.  I did it now because I thought that it might give you something better to study from than the one you did last week.  I also plan to replace the final exam questions that are similar to questions 10 and 11 on the practice exam with questions based on this new homework instead, so you should probably look these over.
+> 
+> The homework for next year (and source for some new practice exam questions for this year) is:
+> 	www.cs.kzoo.edu/cs230/homeworks/6_datapaths.php
+> 
+> Since we are not likely to have time to go over these in class tomorrow, I’ve created a solution set that you can look at also:
+> 	 www.cs.kzoo.edu/cs230/homeworks/6_datapaths.pdf
+> 
+> 
+> Alyce
+> 
+> ______________________________________________________
+> Alyce Brady
+> Professor of Computer Science
+> Arcus Center for Social Justice Leadership Faculty Fellow
+> Kalamazoo College
+> 
+> 
+> 
+
