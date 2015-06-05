@@ -72,3 +72,5 @@ Commcercial Usage:
 Notes: 
 	- I feel like some of the technical networking terms they used were not technically correct
 	- Well informed, Elli did a fantastic job explaining things in easy to understand ters with Pizza as a Service, which I thought was kinda clever
+	- They should have put less onto their slides
+	- They should have gone into a littl more detail 
