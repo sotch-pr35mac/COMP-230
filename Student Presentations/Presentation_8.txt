@@ -1,0 +1,74 @@
+Cloud Computing / Server Farms
+Elli and Nathan
+
+Definitions:
+	- Server farm: A collection of server computers that work teogether via networking to share sotre process and send out data information to multiple remote locations. these computers are held together in what is called a data center.
+	- Cloud Computing: Anything that uses multiple computers remotely connected and hosted via a server or a server farm. 
+	- Client server model: where a client requests resoruces form a server
+
+Server:
+	- A server: a program that shares stores prcesses and uploads and downloads data for other computer programs. a computer that only runs serer programs can also be called a server. 
+
+Server Farms:
+	- Server farms are a large collection of networked server computers that are located in a single room.
+	- They use the combined power of all the servers to expedite the computing process done by the servers
+	- A typical farm can have tens of thousands of servers in a building.
+	- The two limiting factors for the amount fo servers in teh farm are:
+		- power consumption
+		- the space it all takes up (not really all that important
+
+Vritual Server Farm:
+	- when the server program is shared between several comptuers wirelessly
+		- as opposed to having them all together in a real servfer farm
+
+Cluster Computing: 
+	- several separte servers and or comptuers workign together to perform as one
+		- pros:
+			- availability
+			- speed
+		- three general server dynamics used in clusters
+			- data transaction servers
+			- web application servers
+			- appliance servers
+
+Specific Types of Server Farms:
+	- Internet Server Farm
+	- Intranet Server Farm
+	- Extranet Server Farm	
+
+Cloud Computing: 
+	- A technolgoy that is a cross between server farms and virtual server farms
+		- three fundamental service models:
+			- software as a service (SaaS)
+			- Platform as a service
+			- Infrastruction as a Service
+
+Software as a Service (SaaS):
+	- it is a software distribution model where the software is accessed through a web based service such as the itnernet. 
+	- There is no need for infrastrucure as the p=rovider handles it for the client making it cheaper in the long run.
+
+Platform as a Service (PaaS):
+	- tools for building and running self-invented programs over the internet
+		- google app engine
+		- amazon s3
+		- force.com
+Infrastruture as a Server:
+	- provides virtual computing resources 
+	- tools applied for specific purposes when building and creating programs
+		- amazon webservice
+		- microsoft azure
+		- google cloud engine
+
+The cloud vs the Internet:
+	- internet is a connection of multiple digital networks
+	- the "cloud" is a technology that delivers resources( usually over the internet)
+
+Commcercial Usage:
+	- amazon web service #1 cloud service on suage
+	- microsoft azure cloud
+	- #2 cloud service on usage google (Drive, docs, cloud, platform, etc. )
+	- #3 IBM cloud
+
+Notes: 
+	- I feel like some of the technical networking terms they used were not technically correct
+	- Well informed, Elli did a fantastic job explaining things in easy to understand ters with Pizza as a Service, which I thought was kinda clever
